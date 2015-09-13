@@ -1,26 +1,38 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Sign Up
+![Sign Up]
 
-## Feed Show (landing page)
-![feed-show]
+## Log In
+![Log In]
 
-## Blog Show
-![blog-show]
+## My Tasks Show (landing page)
+![My Tasks Show]
 
-## Post Show
-![post-show]
+## All Items
+![All Items]
 
-## Post Form
-![post-form]
+## Project Show
+![Project Show]
 
-## Search Results
-![search-results]
+## Inbox Show
+![Inbox Show]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+## Dashboard Show
+![Dashboard Show]
+
+## New Workspace
+![New Workspace]
+
+## New Project
+![New Project]
+
+[Sign Up]: ./wireframes/Sign_Up.png
+[Log In]: ./wireframes/Log_In.png
+[My Tasks Show]: ./wireframes/My_Tasks_Show.png
+[All Items]: ./wireframes/All_Items.png
+[Project Show]: ./wireframes/Project_Show.png
+[Inbox Show]: ./wireframes/Inbox_Show.png
+[Dashboard Show]: ./wireframes/Dashboard_Show.png
+[New Workspace]: ./wireframes/New_Workspace.png
+[New Project]: ./wireframes/New_Project.png

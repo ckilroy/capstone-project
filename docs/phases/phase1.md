@@ -1,22 +1,30 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Authentication, Basic Workspaces/Projects/Tasks
 
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Workspace
+* Project
+* Task
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* WorkspacesController (create, new, index)
+* ProjectsController (create, new, index)
+* TasksController (create, new, index, show)
+
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* workspaces/new.html.erb
+* workspaces.html.erb
+* projects/new.html.erb
+* projects.html.erb (i.e., Dashboard Show)
+* project/:id/tasks.html.erb (i.e. Project Show)
+* user/:id/tasks.html (i.e. My Tasks)
+* task/:id.html.erb
 
 ## Backbone
 ### Models

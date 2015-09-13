@@ -9,16 +9,30 @@ NameTBD is a clone of Asana built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+Minimal MVP:
+Users can create accounts
+Users can sign in and out
+Users can create Workspaces
+Users can create Projects within Workspaces
+Users can create Tasks within Projects
+Users Dashboard show page displays all Projects
+User's Task show page displays all tasks
+Project's show page displays only tasks associated with Project
+Tasks can be marked and ordered as "Today," "Upcoming," or "Later"
+Tasks can be drag/dropped
+Tasks can be marked as completed and moved to trash
+Tasks, Projects, and Workspaces can be permanently deleted (with dependents deleted).
+
+Sharing Features:
+Workspaces can be private or shared with other users
+Projects can be private or shared with other users
+Projects show page displays all Project tasks to any user associated with Project.
+Tasks can be assigned to users
+User's Tasks show page displays tasks assigned to that user and any tasks not associated with a project(i.e., personal) tasks
+Users can follow tasks
+Users have an inbox
+Changes to shared or followed projects/tasks arrive as inbox messages to other users
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,59 +43,43 @@ NameTBD is a clone of Asana built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication, Workspace/Projects/Tasks Creation (~2 days)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+App Academy. By the end of this phase, users will be able to create workspaces, projects, and tasks that are linked to one another in Rails. The setup will be similar
+to the music app we created by the end of this phase.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Viewing Workspaces, Projects, Tasks (~4-5 days)
+I will add API routes to serve workspace, project, and task data as JSON, then add Backbone models and collections to fetch data from those routes. By the end of this
+phase, users will be able to create, update, destroy and view their workspaces, projects and tasks. They will be able to select their workspace (eventually from a drop-down menu, but probably via an index page at this stage). They will be able to access an index of thier projects, i.e. the dashboard. There will be two ways of viewing tasks via nested routes: 1) a project/tasks index page, which will display all tasks associated with a particular project (i.e. Project Show). 2) A user/tasks index page to display all of a user's tasks.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Task Details (~1 day)
+User tasks can be ordered by priority (Today, Upcoming or Later). I will also create a task show page so users can view information about and individual task.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Implementation of Sharing Features (~1-2 days)
+Allow workspaces and projects to be labeled as private or shared with other users.
+Change visibility in show pages according to privacy settings. Allow tasks to be
+assigned to users.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Adding an Inbox (~2 days)
+Tasks can be followed. Changes made by other users to shared projects or followed
+task arrive as messages in user's inbox.
+
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+Add flying unicorns to celebrate productivity! (a real Asana feature I just discovered!)
+Subtasks
+Project stats and progress charts
+Calendar, Attachments, or Message Board features
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

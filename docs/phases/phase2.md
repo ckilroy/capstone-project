@@ -4,26 +4,25 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::WorkspacesController (create, destroy, index)
+Api::ProjectsController (create, destroy, index)
+Api::TasksController (create, destroy, index, show)
 
 ### Views
-* blogs/show.json.jbuilder
+
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Workspace
+* Project
+* Task
 
 ### Collections
-* Blogs
-* Posts
+* Workspaces
+* Projects
+* Tasks
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+
 
 ## Gems/Libraries
