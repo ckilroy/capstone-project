@@ -17,23 +17,10 @@ module Api
       render json: {}
     end
 
-    def index
-      @projects = Project.all
-
-      render json: @projects
-    end
-
-    def show
-      @project = Project.find(params[:id])
-
-      render json: @project
-    end
-
-
     private
 
     def project_params
-      params.require(:workspace).permit(:name)
+      params.require(:workspace).permit(:name, :workspace_id)
     end
 
   end

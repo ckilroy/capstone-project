@@ -28,7 +28,7 @@ module Api
     def show
       @workspace = Workspace.find(params[:id])
 
-      render json: @workspace
+      render :show
       #eventually will render :show and then in views/api/workspaces/show.json.jbuilder extract data
     end
 
