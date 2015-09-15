@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resource :session
 
-  resources :api, defaults: {format: :json} do
-
+  namespace :api, defaults: {format: :json} do
+    resources :workspaces
   end
 end
 
