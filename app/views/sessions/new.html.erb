@@ -2,8 +2,10 @@
 
 <form action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-  <label for="email"><input id="email" name="user[email]" type="text"></label>
-  <label for="password"><input id="password" name="user[password]" type="password"></label>
+  <label for="email">Email: <input id="email" name="user[email]" type="text"></label>
+  <label for="password">Password: <input id="password" name="user[password]" type="password"></label>
 
   <button>Sign In</button>
-</form>
+</form>   <br>
+
+Don't have an account? <a href="/users/new">Create Account</a>
