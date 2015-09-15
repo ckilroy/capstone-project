@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'root#root'
+  root to: 'static_pages#root'
+
+  resources :users
+  resource :session
+
+  resources :api, defaults: {format: :json} do
+
+  end
 end
 
 

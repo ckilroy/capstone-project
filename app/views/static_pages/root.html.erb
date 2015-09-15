@@ -1,0 +1,14 @@
+<h1>Asana Clone</h1>
+<% if signed_in? %>
+<form action="/session" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+  <button>Sign Out</button>
+</form>
+
+<% end %>
+
+<div id="content"></div>
+<script type="text/javascript" charset="utf-8">
+  // $(PostApp.initialize);
+</script>
