@@ -2,7 +2,7 @@ AsanaClone.Models.Workspace = Backbone.Model.extend({
   urlRoot: "api/workspaces",
 
   parse: function (response) {
-    if (workspace.projects) {
+    if (response.projects) {
       this.projects().set(response.projects, {parse: true});
       delete response.projects;
     }
