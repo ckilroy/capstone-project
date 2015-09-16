@@ -1,5 +1,5 @@
-AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
-  template: JST['workspaces/show'],
+AsanaClone.Views.WorkspaceDashboard = Backbone.CompositeView.extend({
+  template: JST['workspaces/dashboard'],
 
   initialize: function () {
     this.collection = this.model.projects();
@@ -20,8 +20,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   },
 
   addProjectView: function (project) {
-    var subview = new AsanaClone.Views.ProjectShow({model: project});
-    this.addSubview('#projects', subview);
+    var subview = new AsanaClone.Views.ProjectDashItem({model: project});
+    this.addSubview('#dash-projects', subview);
   }
 
 })
