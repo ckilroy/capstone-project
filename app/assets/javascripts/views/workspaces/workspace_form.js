@@ -28,6 +28,15 @@ AsanaClone.Views.WorkspaceForm = Backbone.View.extend({
       success: function () {
         that.collection.add(that.model, {merge: true});
         Backbone.history.navigate("", {trigger: true});
+      },
+
+      error: function (model, response) {
+        $('.errors').empty();
+        response.responseJSON.forEach(function(el){
+          $li = $('<li>');
+          error = $li.text(el);
+          $('.errors').append($li);
+        });
       }
     });
   }

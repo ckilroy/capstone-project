@@ -8,3 +8,9 @@
   <button>Create New User</button>
 </form>
 <a href="/session/new">Sign In</a>
+
+<% if flash[:errors] %>
+<div >
+<%= flash[:errors].join("<br>").html_safe %>
+</div>
+<% end %>

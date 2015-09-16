@@ -8,4 +8,11 @@
   <button>Sign In</button>
 </form>   <br>
 
+<% if flash[:errors] %>
+<div >
+<%= flash[:errors].join("<br>").html_safe %>
+</div>
+<% end %>
+
+
 Don't have an account? <a href="/users/new">Create Account</a>
