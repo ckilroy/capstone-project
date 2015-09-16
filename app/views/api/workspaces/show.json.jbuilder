@@ -1,5 +1,5 @@
-json.extract! @workspace, :name
+json.extract! @workspace, :id, :name
 
 json.projects @workspace.projects do |project|
-  json.extract! project, :name, :description, :created_at, :updated_at
+  json.extract! project, :id, :name, :description, :created_at, :updated_at
 end

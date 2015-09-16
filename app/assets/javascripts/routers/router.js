@@ -21,14 +21,25 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  dashboard: function (id) {
+  show: function (id) {
+    // this will be inserted into .sidebar
     var workspace = this.workspaces.getOrFetch(id)
 
-    var showView = new AsanaClone.Views.WorkspaceDashboard({
+    var showView = new AsanaClone.Views.WorkspaceShow({
       model: workspace
     });
 
     this._swapView(showView);
+  },
+
+  dashboard: function (id) {
+    var workspace = this.workspaces.getOrFetch(id)
+
+    var dashView = new AsanaClone.Views.WorkspaceDashboard({
+      model: workspace
+    });
+
+    this._swapView(dashView);
   },
 
   new: function () {
@@ -45,7 +56,6 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   _swapView: function (view){
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    debugger
     this.$rootEl.html(view.render().$el);
   }
 })
