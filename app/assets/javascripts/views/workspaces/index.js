@@ -15,7 +15,7 @@ AsanaClone.Views.WorkspacesIndex = Backbone.View.extend({
       });
       this.$('ul').append(indexItem.render().$el);
     }.bind(this));
-    
+
     return this;
   }
 })

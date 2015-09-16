@@ -7,8 +7,10 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "workspaces/new": "new",
-    "workspaces/:id": "dashboard"
+    "workspaces/:id": "show",
+    "dashboard/:id": "dashboard"
   },
+
 
   index: function () {
     this.workspaces.fetch();
@@ -43,6 +45,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   _swapView: function (view){
     this._currentView && this._currentView.remove();
     this._currentView = view;
+    debugger
     this.$rootEl.html(view.render().$el);
   }
 })
