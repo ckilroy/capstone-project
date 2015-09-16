@@ -5,14 +5,13 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index",
-    "workspaces/new": "new",
-    "workspaces/:id": "show",
+    "": "workIndex",
+    "workspaces/new": "workNew",
+    "workspaces/:id": "workShow",
     "dashboard/:id": "dashboard"
   },
 
-
-  index: function () {
+  workIndex: function () {
     this.workspaces.fetch();
     var indexView = new AsanaClone.Views.WorkspacesIndex({
       collection: this.workspaces
@@ -21,7 +20,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  show: function (id) {
+  workShow: function (id) {
     // this will be inserted into .sidebar
     var workspace = this.workspaces.getOrFetch(id)
 
@@ -42,7 +41,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this._swapView(dashView);
   },
 
-  new: function () {
+  workNew: function () {
     var newWorkspace = new AsanaClone.Models.Workspace();
 
     var newView = new AsanaClone.Views.WorkspaceForm({

@@ -17,12 +17,19 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.attachSubviews();
+    this.renderProjectForm();
     return this;
   },
 
   addProjectLinkItem: function (project) {
     var subview = new AsanaClone.Views.ProjectLinkItem({model: project});
     this.addSubview('#projects', subview);
-  }
+  },
 
+  renderProjectForm: function () {
+    var view = new AsanaClone.Views.ProjectForm({
+      collection: this.collection
+    });
+    this.addSubview('#project-form', view);
+  }
 })

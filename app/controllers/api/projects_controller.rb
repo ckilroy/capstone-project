@@ -20,7 +20,7 @@ module Api
     private
 
     def project_params
-      params.require(:workspace).permit(:name, :workspace_id)
+      params.require(:project).permit(:name, :workspace_id)
     end
 
   end
