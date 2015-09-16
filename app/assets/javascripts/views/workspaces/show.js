@@ -5,6 +5,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.collection = this.model.projects();
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.renderProjectForm);
     this.listenTo(this.collection, "add", this.addProjectLinkItem);
 
     this.collection.forEach(function(project) {
@@ -17,7 +18,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.attachSubviews();
-    this.renderProjectForm();
+    // this.renderProjectForm();
     return this;
   },
 
