@@ -1,0 +1,25 @@
+<% if signed_in? %>
+  <nav class="navbar">
+    <div class="container group">
+
+
+      <ul class="navbar-links group">
+        <li><a href="">My Tasks</a></li>
+        <li><a href="">My Inbox</a></li>
+        <li><a href="">*Dropdown</a></li>
+        <li><a href="">*Search</a></li>
+      </ul>
+
+
+      <div class="navbar-dropdown group">
+        <form action="/session" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+          <button>Sign Out</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+<% end %>
+<br>

@@ -12,6 +12,6 @@ window.AsanaClone = {
   }
 };
 
-$(document).ready(function(){
-  AsanaClone.initialize();
-});
+// $(document).ready(function(){
+//   AsanaClone.initialize();
+// });
