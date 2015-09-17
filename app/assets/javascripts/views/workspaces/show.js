@@ -50,7 +50,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
       model: project
     });
 
-    $('#project-show').empty();
-    this.addSubview('#project-show', view)
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.addSubview('#project-show', view);
   }
 })

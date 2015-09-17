@@ -6,6 +6,14 @@ class User < ActiveRecord::Base
   has_many :user_workspaces
   has_many :workspaces, :through => :user_workspaces
 
+  has_many :created_tasks,
+  class_name: "Task",
+  foreign_key: "creator_id"
+
+  has_many :assigned_tasks,
+  class_name: "Task",
+  foreign_key: "assignee_id"
+
   attr_reader :password
   after_initialize :ensure_session_token
 
