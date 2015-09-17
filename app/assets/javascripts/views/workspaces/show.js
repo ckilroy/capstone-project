@@ -13,6 +13,10 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     }.bind(this))
   },
 
+  events: {
+    "click .project-link": "renderProjectShow"
+  },
+
   render: function () {
     var renderedContent = this.template({workspace: this.model});
 
@@ -23,7 +27,10 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   },
 
   addProjectLinkItem: function (project) {
-    var subview = new AsanaClone.Views.ProjectLinkItem({model: project});
+    var subview = new AsanaClone.Views.ProjectLinkItem({
+      collection: this.model,
+      model: project
+    });
     this.addSubview('#projects', subview);
   },
 
@@ -32,5 +39,18 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
       collection: this.collection
     });
     this.addSubview('#project-form', view);
+  },
+
+  renderProjectShow: function (e) {
+    e.preventDefault();
+    $target = $(e.currentTarget);
+    var project = this.collection.get($target.data('id'))
+
+    var view = new AsanaClone.Views.ProjectShow({
+      model: project
+    });
+
+    $('#project-show').empty();
+    this.addSubview('#project-show', view)
   }
 })
