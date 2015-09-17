@@ -12,8 +12,8 @@ module Api
     end
 
     def show
-      @task = Task.new(params[:id])
-      render :show
+      @task = Task.find(params[:id])
+      render json: @task
     end
 
     def destroy
