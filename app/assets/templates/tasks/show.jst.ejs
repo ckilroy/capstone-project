@@ -15,11 +15,11 @@
 
 <h1> <%= tasks.project.escape('name') %> </h1>
 
-<section id="task-name" class="editable">
+<section id="task-name" class="editable" data-field="name">
   <%= task.escape('name') %>
 </section>
 
-<section id="task-description" class="editable">
+<section id="task-description" class="editable" data-field="description">
   <% if (task.escape('description')) { %>
     <%= task.escape('description') %>
   <% } else { %>
