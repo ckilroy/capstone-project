@@ -6,16 +6,13 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     //this.model = project
     //this.collection = tasks
     this.collection = this.model.tasks();
-
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.collection, "sync", this.renderTaskMiniForm)
+    this.listenTo(this.collection, "add", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
       this.addTaskLinkItem(task);
     }.bind(this));
-  },
-
-  events: {
-    "click .editable": "editTask",
-    "blur .edit-task": "updateTask"
   },
 
   render: function () {
@@ -35,29 +32,10 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     this.addSubview("#tasks", subview)
   },
 
-  editTask: function(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var field = $target.data('field') //right now, only name, but will be adding others
-    var $input = $("<input class='edit-task'>");
-
-    $input.data('field', field);
-    var task = this.collection.getOrFetch($target.data('id'))
-    $input.val(task.escape(field));
-    $target.removeClass('editable');
-    $target.html($input);
-    $input.focus();
-  },
-
-  // saveTask: function (e) {
-  //   e.preventDefault();
-  //   var $target = $(e.currentTarget);
-  //   var field = $target.data('field');
-  //   var newVal = $target.val();
-  //
-  //   var task = this.collection.getOrFetch($target.data('id'))
-  //   task.set(field, newVal);
-  //   task.save();
-  // }
-  ///write thsese out separately... edit in place and create a new one as a link??
+  renderTaskMiniForm: function (e) {
+    var subview = new AsanaClone.Views.TaskMiniForm({
+      collection: this.collection
+    });
+    this.addSubview("#task-form", subview);
+  }
 })

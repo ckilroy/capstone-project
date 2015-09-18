@@ -1,5 +1,5 @@
 AsanaClone.Models.Workspace = Backbone.Model.extend({
-  urlRoot: "api/workspaces",
+  urlRoot: "/api/workspaces",
 
   parse: function (response) {
     if (response.projects) {

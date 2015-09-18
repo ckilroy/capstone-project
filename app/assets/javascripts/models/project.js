@@ -1,4 +1,6 @@
 AsanaClone.Models.Project = Backbone.Model.extend({
+  urlRoot: "/api/projects",
+
   tasks: function () {
     if (!this._tasks) {
       this._tasks = new AsanaClone.Collections.Tasks([], {
@@ -13,7 +15,7 @@ AsanaClone.Models.Project = Backbone.Model.extend({
       this.tasks().set(response.tasks);
       delete response.tasks;
     }
-    
+
     return response;
   }
 })

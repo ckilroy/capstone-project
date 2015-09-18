@@ -26,14 +26,14 @@ Backbone.LinkFormView = Backbone.View.extend({
     this.render();
   },
 
-  maybeCreate: function(event) {
-    if (event.keyCode === 13) {
-      this.create(event);
+  maybeCreate: function(e) {
+    if (e.keyCode === 13) {
+      this.create(e);
     }
   },
 
-  showForm: function (event) {
-    event.preventDefault();
+  showForm: function (e) {
+    e.preventDefault();
     this.formShowing = true;
     this.render();
     this.$('input').focus();
