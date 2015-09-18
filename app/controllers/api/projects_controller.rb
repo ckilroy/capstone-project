@@ -1,6 +1,6 @@
 module Api
   class ProjectsController < ApplicationController
-    before_action :require_workspace_member!
+    # before_action :require_workspace_member!
 
     def create
       @project = current_workspace.projects.new(project_params)

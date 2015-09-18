@@ -1,6 +1,6 @@
 module Api
   class TasksController < ApplicationController
-    before_action :require_workspace_member!
+    # before_action :require_workspace_member!
 
     def create
       @task = current_project.tasks.new(task_params)

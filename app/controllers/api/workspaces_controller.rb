@@ -37,7 +37,9 @@ module Api
       if @workspace.is_member?(current_user)
         render :show
       else
-        render json: ["You do not belong to this workspace."], status: 403
+        #FIX get this to redirect to session_url....
+        redirect_to session_url
+        render json: ["Sign in with an associated account to access this workspace"], status: 403
       end
     end
 
