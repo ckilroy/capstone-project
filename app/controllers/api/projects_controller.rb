@@ -28,6 +28,7 @@ module Api
       if params[:id]
         @project = Project.find(params[:id])
         @workspace = @project.workspace
+       #i think this is for updating projects that already exist?? using elsif in my app now
       elsif params[:project]
         @workspace = Workspace.find(params[:project][:workspace_id])
       end

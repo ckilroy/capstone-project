@@ -19,6 +19,7 @@ module Api
     end
 
     def update
+      #this may need to change to make sure its nested under workspace -> project?
       @task = Task.find(params[:id])
 
       if @task.update(task_params)
@@ -49,7 +50,7 @@ module Api
     def current_project
       if params[:id]
         @task = Task.find(params[:id])
-        @project = @task.project;
+        @project = @task.project
       elsif params[:task]
         @project = Project.find(params[:task][:project_id])
       end

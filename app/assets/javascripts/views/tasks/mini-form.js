@@ -6,6 +6,7 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
     event.preventDefault();
     this.collection.create({
       creator_id: 1, //******FIX hard coded for now but needs to be tied to user
+      //maybe i need a backbone user model just so i can know who is signed in...
       project_id: this.collection.project.id,
       name: this.$('input').val() //add other values like description later...
     }, {wait: true}); //adding new task to collection, (attrs, options),

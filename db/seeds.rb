@@ -15,12 +15,6 @@ UserWorkspace.create({user_id: users[0].id, workspace_id: workspaces[1].id})
 #not-me is only associated with the team workspace
 UserWorkspace.create({user_id: users[1].id, workspace_id: workspaces[1].id})
 
-Project.create() 
-
-t.string   "name",                        null: false
-t.text     "description"
-t.integer  "workspace_id",                null: false
-t.datetime "created_at"
-t.datetime "updated_at"
-t.boolean  "on_dashboard", default: true
-end
+Project.create({name: "Team Project One", workspace_id: workspaces[1].id})
+Project.create({name: "Team Project Two", workspace_id: workspaces[1].id})
+Project.create({name: "Personal Project", workspace_id: workspaces[0].id})
