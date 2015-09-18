@@ -6,8 +6,7 @@ module Api
       @workspace = current_user.workspaces.new(workspace_params)
 
       if @workspace.save
-        # **********Need to insert into join table
-        # new UserWorkspace(user_id: current_user.id, workspace_id: @workspace_id)
+        UserWorkspace.create(user_id: current_user.id, workspace_id: @workspace.id)
         render json: @workspace
       else
         render json: @workspace.errors.full_messages, status: :unprocessable_entity
@@ -16,7 +15,12 @@ module Api
 
     def destroy
       @workspace = current_user.workspaces.find(params[:id])
+      join_table_entries = UserWorkspace.where(workspace_id: @workspace.id)
+
       @workspace.try(:destroy)
+      join_table_entries.each do |entry|
+        entry.try(:destroy)
+      end
       #reminder: try lets you call method without worrying about whether the object's nil
       render json: {}
     end
