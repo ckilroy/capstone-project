@@ -8,7 +8,8 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   events: {
     "click .editable": "editTask",
     "blur .edit-task": "saveTask",
-    "keyup .edit-task": "maybeSaveTask"
+    "keyup .edit-task": "maybeSaveTask",
+    // "click .task-completed": "completeTask"
   },
 
   render: function () {
@@ -51,4 +52,10 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
       this.saveTask(e);
     }
   },
+
+  completeTask: function (e){
+    e.preventDefault();
+    //figure out checkboxes later
+  },
+
 });
