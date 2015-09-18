@@ -1,3 +1,7 @@
+//issues:
+//only after clicking editable does the create new task link appear. needs to
+//render
+
 // project will have its own show page listing tasks as composite view
 AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   template: JST["projects/show"],
@@ -7,7 +11,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     //this.collection = tasks
     this.collection = this.model.tasks();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "sync", this.renderTaskMiniForm)
+    this.listenTo(this.model, "sync", this.renderTaskMiniForm)
     this.listenTo(this.collection, "add", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
@@ -19,6 +23,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     var renderedContent = this.template({project: this.model})
 
     this.$el.html(renderedContent);
+    this.renderTaskMiniForm();
     return this;
   },
 
