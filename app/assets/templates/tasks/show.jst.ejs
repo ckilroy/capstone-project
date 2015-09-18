@@ -1,5 +1,36 @@
+<nav>
+  <div class="task-assignee">
+    Assignee - to be linked
+  </div>
+  <div class="task-due-date">
+    <% if (task.escape('due_date')) { %>
+      <%= task.escape('due_date') %>
+    <% } else { %>
+      <div class="no-val">
+        Due Date
+      </div>
+    <% } %>
+  </div>
+</nav>
+
 <h1> <%= tasks.project.escape('name') %> </h1>
-<p>
+
+<section id="task-name" class="editable">
   <%= task.escape('name') %>
-  <%= task.escape('description') %>
+</section>
+
+<section id="task-description" class="editable">
+  <% if (task.escape('description')) { %>
+    <%= task.escape('description') %>
+  <% } else { %>
+    <div class="no-val">
+      Description
+    </div>
+  <% } %>
+</section>
+
+<p>
+<div id="task-changes">
+<!-- create, assigned, updated -->
+</div>
 </p>
