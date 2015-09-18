@@ -1,4 +1,4 @@
-AsanaClone.Views.TaskLinkItem = Backbone.View.extend({
+AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   template: JST['tasks/link-item'],
 
   initialize: function () {
@@ -14,7 +14,7 @@ AsanaClone.Views.TaskLinkItem = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({
       task: this.model,
-      projects: this.collection //do I need this?
+      tasks: this.collection //still may not need this
     });
 
     this.$el.html(renderedContent);
@@ -50,5 +50,5 @@ AsanaClone.Views.TaskLinkItem = Backbone.View.extend({
     if (e.keyCode === 13) {
       this.saveTask(e);
     }
-  }
+  },
 })

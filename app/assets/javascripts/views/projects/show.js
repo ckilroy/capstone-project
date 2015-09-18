@@ -19,6 +19,10 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
+  events: {
+    "click .task-detail": "taskDetail"
+  },
+
   render: function () {
     var renderedContent = this.template({project: this.model})
 
@@ -30,7 +34,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   addTaskLinkItem: function (task) {
     var subview = new AsanaClone.Views.TaskLinkItem({
       model: task,
-      collection: this.model
+      collection: this.collection //changed from model
     });
     //probably need to listen to sync and render in this view
 
@@ -42,5 +46,21 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
       collection: this.collection
     });
     this.addSubview("#task-form", subview);
+  },
+
+
+  taskDetail: function (e) {
+    e.preventDefault();
+    $target = $(e.currentTarget);
+    var task = this.collection.getOrFetch($target.data('id'))
+
+    var subview = new AsanaClone.Views.TaskShow({
+      model: task,
+      collection: this.collection
+    });
+
+    this._currentView && this._currentView.remove();
+    this._currentView = subview;
+    this.addSubview('#task-detail-show', subview);
   }
 })

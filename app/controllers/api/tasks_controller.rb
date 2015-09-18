@@ -10,7 +10,13 @@ module Api
         render json: @task.errors.full_messages, status: :unprocessable_entity
       end
     end
-    
+
+    def index
+      @tasks = Task.all
+
+      render json: @tasks
+    end
+
     def update
       @task = Task.find(params[:id])
 
