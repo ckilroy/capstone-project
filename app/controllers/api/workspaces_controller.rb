@@ -3,9 +3,11 @@ module Api
     #for now, not worrying about whether user belongs to board, just creating...
 
     def create
-      @workspace = Workspace.new(workspace_params)
+      @workspace = current_user.workspaces.new(workspace_params)
 
       if @workspace.save
+        # **********Need to insert into join table
+        # new UserWorkspace(user_id: current_user.id, workspace_id: @workspace_id)
         render json: @workspace
       else
         render json: @workspace.errors.full_messages, status: :unprocessable_entity
@@ -13,23 +15,26 @@ module Api
     end
 
     def destroy
-      @workspace = Workspace.find(params[:id])
+      @workspace = current_user.workspaces.find(params[:id])
       @workspace.try(:destroy)
       #reminder: try lets you call method without worrying about whether the object's nil
       render json: {}
     end
 
     def index
-      @workspaces = Workspace.all
+      @workspaces = current_user.workspaces
 
       render json: @workspaces
     end
 
     def show
-      @workspace = Workspace.find(params[:id])
+      @workspace = Workspace.includes(:users, :projects, :tasks).find(params[:id])
 
-      render :show
-      #eventually will render :show and then in views/api/workspaces/show.json.jbuilder extract data
+      if @workspace.is_member?(current_user)
+        render :show
+      else
+        render json: ["You do not belong to this workspace."], status: 403
+      end
     end
 
 

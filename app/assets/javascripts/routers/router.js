@@ -20,6 +20,11 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
+  // "myTasksIndex",
+  // myTasksIndex: function () {
+  //
+  // },
+
   workShow: function (id) {
     // this will be inserted into .sidebar
     var workspace = this.workspaces.getOrFetch(id)

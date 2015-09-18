@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :user_workspaces
-  has_many :workspaces, :through => :user_workspaces
+  has_many :workspaces, :through => :user_workspaces, source: :workspace
 
   has_many :created_tasks,
   class_name: "Task",

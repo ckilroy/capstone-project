@@ -1,8 +1,9 @@
 module Api
   class TasksController < ApplicationController
+    before_action :require_workspace_member!
 
     def create
-      @task = Task.new(task_params)
+      @task = current_project.tasks.new(task_params)
 
       if @task.save
         render json: @task
@@ -45,5 +46,17 @@ module Api
         :due_date, :completed, :priority, :assignee_id, :created_at, :updated_at)
     end
 
+    def current_project
+      if params[:id]
+        @task = Task.find(params[:id])
+        @project = @task.project;
+      elsif params[:task]
+        @project = Project.find(params[:task][:project_id])
+      end
+    end
+
+    def current_workspace
+      current_project.workspace
+    end
   end
 end
