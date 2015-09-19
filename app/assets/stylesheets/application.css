@@ -13,20 +13,46 @@
  *= require_tree .
  *= require_self
  */
-/*
-html, body, nav, div, a, ul, li, form, input, button {
+
+html, body, header, nav, h1, a, ul, li, div, form, input, button {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
+
   font: inherit;
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
+
   box-sizing: inherit;
+
   background: transparent;
 }
+
+ul {
+  list-style: none;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /*gets rid of  styling on these*/
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+  /*shows hand when over button*/
+}
+
+/* Clearfix */
 
 .group:after {
   content: "";
@@ -34,19 +60,86 @@ html, body, nav, div, a, ul, li, form, input, button {
   clear: both;
 }
 
-ul {
-  list-style: none;
-}
-
 body {
   font-family: "Helvetica", sans-serif;
-  background-color: #C0B1C7;
+  font-size: 16px;
+  font-weight: 400;
+  background: #C0B1C7;
 }
 
-nav {
-  background-color: #E1D9E4;
-  border: 1px solid #7E6987;
+/*header ################################# */
+.header {
+  background: #E1D9E4;
+  color: #fff;
+  border-bottom: 1px solid #7E6987;
+  position: relative;
+  z-index: 1;
 }
+
+.header a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-navbar {
+  margin: auto;
+  width: 900px;
+  border-left: 1px solid #7E6987;
+  border-right: 1px solid #7E6987;
+}
+
+.header-logo {
+  float: left;
+  border-right: 1px solid #7E6987;
+  font-weight: 700;
+}
+
+.header-logo:hover {
+  background: #C0B1C7;
+}
+
+.header-links {
+  float: left;
+}
+
+.header-links > li {
+  float: left;
+  postition: relative;
+}
+
+.header-links > li:hover{
+  background: #C0B1C7;
+}
+
+.header-dropdown {
+  display: none;
+  position: absolute;
+  background: #E1D9E4;
+  border-left: 1px solid #7E6987;
+  border-right: 1px solid #7E6987;
+  border-bottom: 1px solid #7E6987;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+li:hover .header-dropdown{
+  display: block;
+}
+
+.header-dropdown > li {
+  color: #000;
+  border-top: 1px solid #7E6987;
+}
+
+.header-dropdown > li:hover {
+  background: #C0B1C7;
+}
+
+/*header-end###########################*/
+
+/*
+
+
 
 .container {
   margin: 0 auto;

@@ -1,25 +1,36 @@
 <% if signed_in? %>
-  <nav class="navbar">
-    <div class="container group">
+  <header class="header">
+    <nav class="header-navbar group">
 
+      <h1 class="header-logo">
+        <a href="#">AsanaClone</a>
+      </h1>
 
-      <ul class="navbar-links group">
+      <ul class="header-links group">
         <li><a href="">My Tasks</a></li>
         <li><a href="">My Inbox</a></li>
         <li><a href="">*Dropdown</a></li>
         <li><a href="">*Search</a></li>
+
+        <li><a href="#">*WorkspaceName + Avatar*</a>
+
+          <ul class="header-dropdown group">
+            <li><a href="#">*List of Workspaces</a></li>
+            <li><a href="#">*Create and Delete Workspaces</a></li>
+
+            <li>
+              <form action="/session" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+                <button>Sign Out</button>
+              </form>
+            </li>
+          </ul>
+
+        </li>
+
       </ul>
 
-
-      <div class="navbar-dropdown group">
-        <form action="/session" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-          <button>Sign Out</button>
-        </form>
-      </div>
-
-    </div>
-  </nav>
+    </nav>
+  </header>
 <% end %>
-<br>
