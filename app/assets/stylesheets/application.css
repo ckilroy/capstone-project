@@ -135,6 +135,14 @@ li:hover .header-dropdown{
   background: #C0B1C7;
 }
 
+.header-workspaces {
+  background: #E1D9E4;
+}
+
+.header-workspaces > li:hover {
+  background: #C0B1C7;
+}
+
 /*header-end###########################*/
 
 /*
