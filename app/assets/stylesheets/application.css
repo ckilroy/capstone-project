@@ -82,7 +82,7 @@ body {
 }
 
 .header-navbar {
-  margin: auto;
+  /*margin: auto;*/
   width: 900px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
@@ -104,7 +104,7 @@ body {
 
 .header-links > li {
   float: left;
-  postition: relative;
+  position: relative;
 }
 
 .header-links > li:hover{
@@ -121,6 +121,7 @@ body {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 
 li:hover .header-dropdown{
   display: block;

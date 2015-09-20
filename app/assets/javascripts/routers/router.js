@@ -19,6 +19,11 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     });
 
     // QUESTION what if i WANT this to be a zombie? can i do that?
+    //right now i have this in a dropdown, so it is always on the page
+    //but i will eventually only have it show up on a click - maybe
+    //then i can close/remove view manually... i like the url change
+    //when you go to view a project and I don't feel like it makes
+    //sense to have this be a composite view... 
     this.$navEl.html(indexView.render().$el);
   },
 
