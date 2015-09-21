@@ -3,7 +3,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.workspaces = options.workspaces;
     this.current_user_id = options.$rootEl.data('user');
-    this.users = options.users;
+    this.users = new AsanaClone.Collections.Users();
   },
 
   routes: {
@@ -28,46 +28,23 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   //   this.$navEl.html(indexView.render().$el);
   // },
 
-  // "myTasksIndex",
-  // myTasksIndex: function () {
-  //
-  // },
-
-  getCurrentUser: function (callback) {
-    debugger
-    var currentUser = this.users.getOrFetch(this.current_user_id)
-    callback(currentUser);
-  },
-
-//getCurrentUser(userWorkspaces) will become list of workspaces
-
-call workspaceID on the above
-
-  userWorkspaces: function (user) {
-    debugger
-    var workspaces = user.workspaces();
-  },
-
-  workspaceID: function (workspaces) {
-    debugger
-    return workspaces.shift().id
-  },
 
   workShow: function (id) {
     if (id === null) {
-      var workspace = this.workspaces.getOrFetch(this.getCurrentUser(this.userWorkspaces()))
-    } else {
-      var workspace = this.workspaces.getOrFetch(id)
+      this.workspaceID(this.workShow.bind(this, id))
+      return;
     }
 
-    debugger
+    var workspace = this._userWorkspaces.getOrFetch(id)
+
     var showView = new AsanaClone.Views.WorkspaceShow({
       model: workspace
     });
 
     this._swapView(showView);
   },
-  //
+
+
   // dashboard: function (id) {
   //   var workspace = this.workspaces.getOrFetch(id)
   //
@@ -93,5 +70,30 @@ call workspaceID on the above
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
+  },
+
+  //below, callbacks to get default workShow page
+  currentUser: function (callback) {
+    this._currentUser = this.users.getOrFetch(this.current_user_id, callback);
+  },
+
+  userWorkspaces: function (callback) {
+    if (this._currentUser === undefined){
+      this.currentUser(this.userWorkspaces.bind(this, callback));
+      return;
+    };
+
+    this._userWorkspaces = this._currentUser.workspaces();
+    callback && callback();
+  },
+
+  workspaceID: function (callback) {
+    if (this._userWorkspaces === undefined) {
+      this.userWorkspaces(this.workspaceID.bind(this, callback))
+      return;
+    }
+
+    var id = this._userWorkspaces.shift().id
+    this.workShow(id);
   },
 })

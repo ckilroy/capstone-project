@@ -1,10 +1,10 @@
 AsanaClone.Collections.Users = Backbone.Collection.extend({
-  url: "api/users",
+  url: "/api/users",
   model: AsanaClone.Models.User,
 
-  getOrFetch: function (id) {
+  getOrFetch: function (id, callback) {
     var collection = this;
-    var user = this.get(id);
+    var user = collection.get(id);
 
     if (user) {
       user.fetch();
@@ -14,6 +14,9 @@ AsanaClone.Collections.Users = Backbone.Collection.extend({
       user.fetch({
         error: function () {
           collection.remove(user);
+        },
+        success: function () {
+          callback && callback();
         }
       });
     }

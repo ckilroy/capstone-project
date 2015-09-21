@@ -1,8 +1,8 @@
 module Api
   class UsersController < ApplicationController
     def show
-      @user = current_user
-
+      @user = User.includes(:workspaces).find(params[:id])
+      # @user = current_user.includes(:workspaces)
       render :show
     end
 
