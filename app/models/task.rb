@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  validates :name, :creator_id, :project_id, presence: true
+  validates :name, :creator_id, presence: true
 
   belongs_to :project
 

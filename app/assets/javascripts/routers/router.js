@@ -40,7 +40,8 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
 
     var showView = new AsanaClone.Views.WorkspaceShow({
       model: workspace,
-      current_user_id: this.current_user_id
+      current_user_id: this.current_user_id,
+      users: this.users
     });
 
     this.workIndex();

@@ -3,6 +3,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
 
   initialize: function (options) {
+    //refactor to just have current user object up her... affects a few functions
+    this.users = options.users
     this.current_user_id = options.current_user_id
     this.collection = this.model.projects();
     this.listenTo(this.model, "sync", this.render);
@@ -11,7 +13,9 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     this.collection.forEach(function(project) {
       this.displayProjectLink(project);
-    }.bind(this))
+    }.bind(this));
+
+    // this.userTaskShow();
   },
 
   events: {
@@ -25,6 +29,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviews();
     // this.renderProjectForm();
+    this.userTaskShow();
     return this;
   },
 
@@ -47,7 +52,6 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     e.preventDefault();
     $target = $(e.currentTarget);
     var project = this.collection.get($target.data('id'))
-    console.log($target.data('id'))
     var view = new AsanaClone.Views.ProjectShow({
       model: project,
       current_user_id: this.current_user_id
@@ -59,13 +63,18 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this.addSubview('#project-show', view);
   },
 
-  // userTaskShow: function () {
-  //   var user = this.users.getOrFetch(this.current_user_id);
-  //
-  //   var userTaskShow = new AsanaClone.Views.UserTaskShow({
-  //     model: user
-  //   })
-  // },
+  userTaskShow: function () {
+    var user = this.users.getOrFetch(this.current_user_id);
+
+    var userTaskShow = new AsanaClone.Views.UserTaskShow({
+      model: user
+    })
+
+    this._currentView && this._currentView.remove();
+    this._subCurrentView && this._subCurrentView.remove();
+    this._currentView = view;
+    this.addSubview('#project-show', UserTaskShow)
+  },
 
   renderTaskDetail: function (e) {
     e.preventDefault();
