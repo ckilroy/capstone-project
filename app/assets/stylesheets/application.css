@@ -150,7 +150,6 @@ li:hover .header-dropdown{
   background: #D3C7D6;
   float: left;
   width: 250px;
-  height: 100%;
   padding: 15px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
@@ -265,8 +264,54 @@ li:hover .header-dropdown{
   border-radius: 5px;
   border: 1px solid #7E6987;
 }
-/*
 
+.task-detail-nav {
+  position: relative;
+  height: 40px;
+  border-bottom: 1px solid #7E6987;
+}
+
+.task-detail-links > li {
+  float: left;
+  position: relative;
+}
+
+.task-detail-links a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.task-show {
+  padding: 10px 30px;
+  border-bottom: 1px solid #7E6987;
+}
+
+.project-name {
+  color: #B0AAB3;
+  padding: 10px 0px;
+}
+
+.task-completed {
+  margin-left: -20px;
+  background: blue;
+}
+
+#task-name {
+  font-size: 25px;
+  padding: 10px 0px;
+}
+
+#task-description {
+  color: #B0AAB3;
+  font-size: 15px;
+  padding: 10px 0px;
+}
+
+#task-changes {
+  font-size: 10pt;
+}
+/*
 
 
 .container {

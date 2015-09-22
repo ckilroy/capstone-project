@@ -49,20 +49,4 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     this.addSubview("#task-form", subview);
   },
-
-
-  // renderTaskDetail: function (e) {
-  //   e.preventDefault();
-  //   $target = $(e.currentTarget);
-  //   var task = this.collection.getOrFetch($target.data('id'))
-  //   debugger
-  //   var subview = new AsanaClone.Views.TaskShow({
-  //     model: task,
-  //     collection: this.collection
-  //   });
-  //
-  //   this._currentView && this._currentView.remove();
-  //   this._currentView = subview;
-  //   this.addSubview('#task-detail-show', subview);
-  // }
 })

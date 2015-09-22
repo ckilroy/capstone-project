@@ -1,42 +1,44 @@
-Still needs to be styled...
+<nav class="task-detail-nav group">
+  <ul class="task-detail-links">
 
-<nav>
-  <div class="task-assignee">
-    Assignee - to be linked
+    <li class="task-assignee"><a href="#">Assignee - to be linked</a></li>
+
+    <li class="task due date">
+      <a href="#">
+        <% if (task.escape('due_date')) { %>
+          <%= task.escape('due_date') %>
+        <% } else { %>
+          <div class="no-val">
+            Due Date
+          </div>
+        <% } %>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="task-show">
+  <h4 class="project-name"> <%= tasks.project.escape('name') %> </h4>
+
+  <input type="checkbox" class="task-completed">
+
+  <div id="task-name" class="editable" data-field="name">
+    <%= task.escape('name') %>
   </div>
-  <div class="task-due-date">
-    <% if (task.escape('due_date')) { %>
-      <%= task.escape('due_date') %>
+
+  <div id="task-description" class="editable" data-field="description">
+    <% if (task.escape('description')) { %>
+      <%= task.escape('description') %>
     <% } else { %>
       <div class="no-val">
-        Due Date
+        Description
       </div>
     <% } %>
   </div>
-</nav>
 
-<h1> <%= tasks.project.escape('name') %> </h1>
+  <div id="task-changes">
+  *changes<!-- create, assigned, updated -->
+  </div>
 
-
-
-<input type="checkbox" class="task-completed">
-
-<section id="task-name" class="editable" data-field="name">
-  <%= task.escape('name') %>
-</section>
-
-<section id="task-description" class="editable" data-field="description">
-  <% if (task.escape('description')) { %>
-    <%= task.escape('description') %>
-  <% } else { %>
-    <div class="no-val">
-      Description
-    </div>
-  <% } %>
-</section>
-
-<p>
-<div id="task-changes">
-<!-- create, assigned, updated -->
 </div>
-</p>
