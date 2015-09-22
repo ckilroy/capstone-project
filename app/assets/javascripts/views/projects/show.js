@@ -20,9 +20,9 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  events: {
-    "click .task-detail": "taskDetail"
-  },
+  // events: {
+  //   "click .task-detail": "renderTaskDetail"
+  // },
 
   render: function () {
     var renderedContent = this.template({project: this.model})
@@ -51,18 +51,18 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
 
-  taskDetail: function (e) {
-    e.preventDefault();
-    $target = $(e.currentTarget);
-    var task = this.collection.getOrFetch($target.data('id'))
-
-    var subview = new AsanaClone.Views.TaskShow({
-      model: task,
-      collection: this.collection
-    });
-
-    this._currentView && this._currentView.remove();
-    this._currentView = subview;
-    this.addSubview('#task-detail-show', subview);
-  }
+  // renderTaskDetail: function (e) {
+  //   e.preventDefault();
+  //   $target = $(e.currentTarget);
+  //   var task = this.collection.getOrFetch($target.data('id'))
+  //   debugger
+  //   var subview = new AsanaClone.Views.TaskShow({
+  //     model: task,
+  //     collection: this.collection
+  //   });
+  //
+  //   this._currentView && this._currentView.remove();
+  //   this._currentView = subview;
+  //   this.addSubview('#task-detail-show', subview);
+  // }
 })

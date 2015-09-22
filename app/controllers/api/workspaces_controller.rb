@@ -1,6 +1,6 @@
 module Api
   class WorkspacesController < ApplicationController
-    #for now, not worrying about whether user belongs to board, just creating...
+    #why do i gave these as current_user.workspaces...
 
     def create
       @workspace = current_user.workspaces.new(workspace_params)

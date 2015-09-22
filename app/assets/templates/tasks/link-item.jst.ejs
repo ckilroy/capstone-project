@@ -1,7 +1,7 @@
 <p class="editable" data-id="<%= task.id %>" data-field="name">
     <%=task.escape('name')%>
 </p>
-<button data-id="<%= task.id %>" class="task-detail">></button>
+<button data-task-id="<%= task.id %>" data-project-id="<%= task.project_id %>" class="task-detail">></button>
 
 
     <!-- can do whites-space in CSS to fix this breaking line -->

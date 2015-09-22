@@ -1,7 +1,8 @@
 AsanaClone.Views.TaskShow = Backbone.View.extend({
   template: JST['tasks/show'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.model = this.collection.getOrFetch(options.taskID)
     this.listenTo(this.model, "sync", this.render)
   },
 

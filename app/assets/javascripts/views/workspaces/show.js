@@ -15,7 +15,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .project-link": "renderProjectShow"
+    "click .project-link": "renderProjectShow",
+    "click .task-detail": "renderTaskDetail"
   },
 
   render: function () {
@@ -54,5 +55,25 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.addSubview('#project-show', view);
+  },
+
+  renderTaskDetail: function (e) {
+    e.preventDefault();
+    $target = $(e.currentTarget);
+    //need the specific task and tasks collection
+
+    var project = this.collection.getOrFetch($target.data('project-id'))
+    var tasks = project.tasks();
+
+    var taskID = $target.data('task-id');
+
+    var subview = new AsanaClone.Views.TaskShow({
+      collection: tasks,
+      taskID: taskID
+    });
+
+    this._subCurrentView && this._subCurrentView.remove();
+    this._subCurrentView = subview;
+    this.addSubview('#task-detail-show', subview);
   }
 })
