@@ -38,7 +38,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     //probably need to listen to sync and render in this view
 
-    this.addSubview("#tasks", subview)
+    this.addSubview("#tasks-list", subview)
   },
 
   renderTaskMiniForm: function (e) {

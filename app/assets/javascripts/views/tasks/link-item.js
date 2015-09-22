@@ -1,6 +1,8 @@
 AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   template: JST['tasks/link-item'],
 
+  tagName: "li",
+
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
   },

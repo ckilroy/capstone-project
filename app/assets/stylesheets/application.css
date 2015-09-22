@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, input, button {
+html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, input, button, p {
   margin: 0;
   padding: 0;
   border: 0;
@@ -208,16 +208,49 @@ li:hover .header-dropdown{
 
 /*sidebar-end#########################*/
 .main {
-  background: green;
   float: left;
-  padding: 0px 30px;
+  padding: 10px 30px;
 }
 
 .project-show {
-  background: red;
+  background: #EDE9F2;
   float: left;
   min-width: 450px;
   max-width: 950px;
+  height: 1000px;
+  border-radius: 5px;
+  border: 1px solid #7E6987;
+}
+
+.project-show h1 {
+  padding: 20px;
+  font-size: 25px;
+  border-bottom: 1px solid #7E6987;
+}
+
+.tasks-window {
+  padding: 10px 60px;
+}
+
+.project-show p {
+  padding: 3px;
+  font-size: 15px;
+}
+
+.project-show button {
+  float: right;
+  padding: 0px 3px 0px 3px;
+  border: 1px solid #7E6987;
+}
+
+.tasks-list > li {
+  border-bottom: 1px solid #7E6987;
+}
+
+.task-form {
+  padding: 3px;
+  color: #B0AAB3;
+  font-size: 15px;
 }
 
 /*

@@ -1,4 +1,4 @@
-// index of projects
+//MyTasks will load on sign in, eventually
 AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
 
@@ -45,7 +45,6 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     e.preventDefault();
     $target = $(e.currentTarget);
     var project = this.collection.get($target.data('id'))
-
     var view = new AsanaClone.Views.ProjectShow({
       model: project
     });
