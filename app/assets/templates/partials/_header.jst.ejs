@@ -1,10 +1,8 @@
-
-  <header class="header">
     <nav class="header-navbar group">
 
       <ul class="header-links group">
-        <li><a href="">My Tasks</a></li>
-        <li><a href="">My Inbox</a></li>
+        <li><a href="">*My Tasks</a></li>
+        <li><a href="">*My Inbox</a></li>
         <li><a href="">*Dropdown</a></li>
         <li><a href="">*Search</a></li>
 
@@ -28,4 +26,10 @@
       </ul>
 
     </nav>
-  </header>
+
+
+*************
+  <header class="header"> <%= JST['partials/_header']() %> </header>
+  *put this into workspace show/main page - but have to figure out how to either access rails session stuff
+  from backbone side or move all the session logic to backbone.
+  ************************

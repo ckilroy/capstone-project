@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, header, nav, h1, a, ul, li, div, form, input, button {
+html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, input, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -83,19 +83,10 @@ body {
 
 .header-navbar {
   /*margin: auto;*/
+  margin-left: 281px;
   width: 900px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
-}
-
-.header-logo {
-  float: left;
-  border-right: 1px solid #7E6987;
-  font-weight: 700;
-}
-
-.header-logo:hover {
-  background: #C0B1C7;
 }
 
 .header-links {
@@ -145,6 +136,89 @@ li:hover .header-dropdown{
 }
 
 /*header-end###########################*/
+
+.container {
+  position: relative;
+  background: #C0B1C7;
+  margin: 0 auto;
+}
+
+/*sidebar##############################*/
+
+.sidebar {
+  background: #D3C7D6;
+  float: left;
+  width: 250px;
+  padding: 15px;
+  border-left: 1px solid #7E6987;
+  border-right: 1px solid #7E6987;
+  border-bottom: 1px solid #7E6987;
+  /*height i want 100%*/
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 0px;
+}
+
+.sidebar-logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: 1px solid #7E6987;
+}
+
+.sidebar-links {
+  font-size: 10pt;
+}
+
+.sidebar-links > li:hover {
+  background: #C0B1C7;
+}
+
+#projects > li:hover {
+  background: #C0B1C7;
+}
+
+.sidebar-project-links {
+  font-size: 10pt;
+}
+
+.sidebar-title > h4 {
+
+}
+
+.sidebar-title > div {
+  width: 40px;
+}
+
+.sidebar-title a:hover {
+  border: 1px solid #7E6987;
+}
+
+.sidebar-project-links > ul {
+
+}
+
+
+.sidebar-project-links li {
+
+}
+
+
+/*sidebar-end#########################*/
+.main {
+  background: green;
+  float: left;
+  padding: 0px 30px;
+}
+
+.project-show {
+  background: red;
+  float: left;
+  min-width: 450px;
+  max-width: 950px;
+}
 
 /*
 
