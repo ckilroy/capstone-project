@@ -57,17 +57,17 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   //
   //   this._swapView(dashView);
   // },
-  //
-  // workNew: function () {
-  //   var newWorkspace = new AsanaClone.Models.Workspace();
-  //
-  //   var newView = new AsanaClone.Views.WorkspaceForm({
-  //     model: newWorkspace,
-  //     collection: this.workspaces
-  //   });
-  //
-  //   this._swapView(newView)
-  // },
+  
+  workNew: function () {
+    var newWorkspace = new AsanaClone.Models.Workspace();
+
+    var newView = new AsanaClone.Views.WorkspaceForm({
+      model: newWorkspace,
+      collection: this.workspaces
+    });
+
+    this._swapView(newView)
+  },
 
   _swapView: function (view){
     this._currentView && this._currentView.remove();
