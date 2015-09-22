@@ -1,6 +1,7 @@
 AsanaClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.$navEl = options.$navEl;
     this.workspaces = options.workspaces;
     this.current_user_id = options.$rootEl.data('user');
     this.users = new AsanaClone.Collections.Users();
@@ -13,11 +14,11 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     "dashboard/:id": "dashboard"
   },
 
-  // workIndex: function () {
-  //   this.workspaces.fetch();
-  //   var indexView = new AsanaClone.Views.WorkspacesIndex({
-  //     collection: this.workspaces
-  //   });
+  workIndex: function () {
+    this.workspaces.fetch();
+    var indexView = new AsanaClone.Views.WorkspacesIndex({
+      collection: this.workspaces
+    });
   //
   //   // QUESTION what if i WANT this to be a zombie? can i do that?
   //   //right now i have this in a dropdown, so it is always on the page
@@ -25,8 +26,8 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   //   //then i can close/remove view manually... i like the url change
   //   //when you go to view a project and I don't feel like it makes
   //   //sense to have this be a composite view...
-  //   this.$navEl.html(indexView.render().$el);
-  // },
+    this.$navEl.html(indexView.render().$el);
+  },
 
 
   workShow: function (id) {
@@ -42,6 +43,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
       current_user_id: this.current_user_id
     });
 
+    this.workIndex();
     this._swapView(showView);
   },
 
