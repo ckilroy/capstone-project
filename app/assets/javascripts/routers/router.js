@@ -44,6 +44,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     });
 
     this.workIndex();
+    // this.userTaskShow();
     this._swapView(showView);
   },
 
@@ -57,7 +58,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   //
   //   this._swapView(dashView);
   // },
-  
+
   workNew: function () {
     var newWorkspace = new AsanaClone.Models.Workspace();
 

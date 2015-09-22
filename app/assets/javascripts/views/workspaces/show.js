@@ -54,9 +54,18 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     });
 
     this._currentView && this._currentView.remove();
+    this._subCurrentView && this._subCurrentView.remove();
     this._currentView = view;
     this.addSubview('#project-show', view);
   },
+
+  // userTaskShow: function () {
+  //   var user = this.users.getOrFetch(this.current_user_id);
+  //
+  //   var userTaskShow = new AsanaClone.Views.UserTaskShow({
+  //     model: user
+  //   })
+  // },
 
   renderTaskDetail: function (e) {
     e.preventDefault();

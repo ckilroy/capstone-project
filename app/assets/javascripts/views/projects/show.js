@@ -20,9 +20,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  // events: {
-  //   "click .task-detail": "renderTaskDetail"
-  // },
+//passing in current user-id... maybe this whole page via user json... ??
 
   render: function () {
     var renderedContent = this.template({project: this.model})

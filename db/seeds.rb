@@ -21,13 +21,32 @@ shared_projects =  Project.create([{name: "Team Project One", workspace_id: work
 #private project
 Project.create({name: "Personal Project", workspace_id: workspaces[0].id})
 
-Task.create(name: "Assigned To CKilroy 1" priority: "today" :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
-Task.create(name: :completed :priority :creator_id :assignee_id :project_id
+Task.create({name: "Assigned To CKilroy 1 - today", priority: 1, creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[0].id})
+Task.create({name: "Assigned To CKilroy 1 - upcoming", priority: 2, creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[0].id})
+Task.create({name: "Assigned To CKilroy 1 - later", priority: 3, creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[0].id})
+Task.create({name: "Assigned To CKilroy 1 - no priority", creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[0].id})
+Task.create({name: "CKilroy 1 created - assigned to NOT-ME", creator_id: users[0].id,
+  assignee_id: users[1].id, project_id: shared_projects[0].id})
+Task.create({name: "CKilroy 1 created - unassigned", creator_id: users[0].id,
+  project_id: shared_projects[0].id})
+Task.create({name: "Assigned To CKilroy 1 - completed", completed: true, creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[0].id})
+
+Task.create({name: "Assigned To CKilroy 2", creator_id: users[0].id,
+  assignee_id: users[0].id, project_id: shared_projects[1].id})
+Task.create({name: "CKilroy 2 created - assigned to NOT ME", creator_id: users[0].id,
+  assignee_id: users[1].id, project_id: shared_projects[1].id})
+
+Task.create({name: "CKilroy assigned - no project", creator_id: users[0].id,
+  assignee_id: users[0].id})
+Task.create({name: "NOT-ME assigned - no project", creator_id: users[0].id,
+  assignee_id: users[1].id})
+Task.create({name: "Unassigned - no project", creator_id: users[0].id})
+
 
 #Project One
 #task assigned to me
@@ -50,19 +69,29 @@ Task.create(name: :completed :priority :creator_id :assignee_id :project_id
 #??? don't think i need a users/projects table, other logic should take care of that....
 
 #in Rails:
-Project - > Workspace
-Project -> Tasks
-Task -> Workspace
-Task -> Project
-Task -> Creator
-Task -> Assignee
-Workspace -> Users
-Workspace -> Projects
-User -> Workspaces
-User -> CreatedTasks
-User -> Assigned Tasks
-
-#BackboneAssociations
-Workspace.projects()
-Project.tasks()
-User.Workspaces()
+# Project - > Workspace
+# Project -> Tasks
+# Task -> Workspace
+# Task -> Project
+# Task -> Creator
+# Task -> Assignee
+# Workspace -> Users
+# Workspace -> Projects
+# User -> Workspaces
+# User -> CreatedTasks
+# User -> Assigned Tasks
+#
+# My Tasks:
+# User -> Asssigned Tasks +
+# User -> CreatedTasks if Task->Project = null?
+# completed = false
+#
+# All Tasks:
+# *use jbuilder for Workspaces
+# each project, all tasks;
+#
+#
+# #BackboneAssociations
+# Workspace.projects()
+# Project.tasks()
+# User.Workspaces()

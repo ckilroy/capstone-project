@@ -151,11 +151,14 @@ li:hover .header-dropdown{
   background: #D3C7D6;
   float: left;
   width: 250px;
+  height: 1020px;
   padding: 15px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
   border-bottom: 1px solid #7E6987;
   margin-top: -39px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   /*height i want 100%*/
 }
 
