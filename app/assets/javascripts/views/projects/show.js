@@ -6,9 +6,10 @@
 AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   template: JST["projects/show"],
 
-  initialize: function () {
+  initialize: function (options) {
     //this.model = project
     //this.collection = tasks
+    this.current_user_id = options.current_user_id
     this.collection = this.model.tasks();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "sync", this.renderTaskMiniForm)
@@ -43,7 +44,8 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
 
   renderTaskMiniForm: function (e) {
     var subview = new AsanaClone.Views.TaskMiniForm({
-      collection: this.collection
+      collection: this.collection,
+      current_user_id: this.current_user_id
     });
     this.addSubview("#task-form", subview);
   },

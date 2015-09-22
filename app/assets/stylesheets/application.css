@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, input, button, p {
+html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p {
   margin: 0;
   padding: 0;
   border: 0;
@@ -30,6 +30,8 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, input, button, p 
 
   background: transparent;
 }
+
+input, button,
 
 ul {
   list-style: none;
@@ -253,6 +255,14 @@ li:hover .header-dropdown{
   font-size: 15px;
 }
 
+#task-detail-show {
+  background: #EDE9F2;
+  float: right;
+  max-width: 450px;
+  height: 1000px;
+  border-radius: 5px;
+  border: 1px solid #7E6987;
+}
 /*
 
 

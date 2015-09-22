@@ -2,7 +2,8 @@
 AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.current_user_id = options.current_user_id
     this.collection = this.model.projects();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "sync", this.renderProjectForm);
@@ -46,7 +47,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     $target = $(e.currentTarget);
     var project = this.collection.get($target.data('id'))
     var view = new AsanaClone.Views.ProjectShow({
-      model: project
+      model: project,
+      current_user_id: this.current_user_id
     });
 
     this._currentView && this._currentView.remove();
