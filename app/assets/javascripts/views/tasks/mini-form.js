@@ -8,7 +8,6 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
 
   create: function (event) {
     event.preventDefault();
-    debugger
     this.collection.create({
       creator_id: this.current_user_id,
       project_id: this.collection.project.id,

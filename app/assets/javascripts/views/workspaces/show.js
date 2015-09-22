@@ -47,6 +47,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     e.preventDefault();
     $target = $(e.currentTarget);
     var project = this.collection.get($target.data('id'))
+    console.log($target.data('id'))
     var view = new AsanaClone.Views.ProjectShow({
       model: project,
       current_user_id: this.current_user_id
@@ -61,8 +62,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     e.preventDefault();
     $target = $(e.currentTarget);
     //need the specific task and tasks collection
-
-    var project = this.collection.getOrFetch($target.data('project-id'))
+    var project = this.collection.get($target.data('project-id'))
     var tasks = project.tasks();
 
     var taskID = $target.data('task-id');

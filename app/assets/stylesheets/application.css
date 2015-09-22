@@ -75,7 +75,6 @@ body {
   color: #fff;
   border-bottom: 1px solid #7E6987;
   position: relative;
-  z-index: 1;
 }
 
 .header a {
@@ -151,10 +150,12 @@ li:hover .header-dropdown{
   background: #D3C7D6;
   float: left;
   width: 250px;
+  height: 100%;
   padding: 15px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
   border-bottom: 1px solid #7E6987;
+  margin-top: -39px;
   /*height i want 100%*/
 }
 
@@ -255,11 +256,12 @@ li:hover .header-dropdown{
   font-size: 15px;
 }
 
-#task-detail-show {
+.task-detail-show {
   background: #EDE9F2;
   float: right;
-  max-width: 450px;
-  height: 1000px;
+  min-width: 400px;
+  max-width: 6300px;
+  height: 215px;
   border-radius: 5px;
   border: 1px solid #7E6987;
 }
