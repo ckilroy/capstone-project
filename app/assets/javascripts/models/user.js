@@ -8,9 +8,9 @@ AsanaClone.Models.User = Backbone.Model.extend({
       this.workspaces().set(response.workspaces, {parse: true});
       delete response.workspaces;
     }
-    if (response.user_tasks) {
-      this.user_tasks().set(response.user_tasks, {parse: true});
-      delete response.user_tasks;
+    if (response.tasks) {
+      this.tasks().set(response.tasks, {parse: true});
+      delete response.tasks;
     }
 
     return response;
@@ -24,11 +24,11 @@ AsanaClone.Models.User = Backbone.Model.extend({
     return this._workspaces;
   },
 
-  user_tasks: function () {
-    if (!this._user_tasks) {
-      this._user_tasks = new AsanaClone.Collections.Tasks ([], {user: this})
+  tasks: function () {
+    if (!this._tasks) {
+      this._tasks = new AsanaClone.Collections.Tasks ([], {user: this})
     }
 
-    return this._user_tasks;
+    return this._tasks;
   },
 })

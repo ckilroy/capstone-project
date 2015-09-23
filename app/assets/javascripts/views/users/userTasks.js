@@ -1,17 +1,25 @@
 AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   template: JST["users/taskshow"],
-
+  //can i refactor to have this be the same as project show now that i changed
+  //user_tasks to tasks?
   initialize: function () {
     //this.model = user
     //this collection = user tasks
-    this.collection = this.model.user_tasks();
-    // // this.listenTo(this.model, "sync", this.render);
+    this.collection = this.model.tasks();
+    // this.listenTo(this.model, "sync", this.render);
     // this.listenTo(this.model, "sync", this.renderTaskMiniForm)
     this.listenTo(this.collection, "add", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
       this.addTaskLinkItem(task);
     }.bind(this));
+  },
+
+  events: {
+    "click .editable": "editTask",
+    "blur .edit-task": "saveTask",
+    "keyup .edit-task": "maybeSaveTask",
+    // "click .task-completed": "completeTask"
   },
 
   render: function () {

@@ -3,7 +3,7 @@ module Api
     # before_action :require_workspace_member!
 
     def create
-      @task = current_project.tasks.new(task_params)
+      @task = Task.new(task_params)
 
       if @task.save
         render json: @task
@@ -40,7 +40,7 @@ module Api
       render json: {}
     end
 
-  
+
     private
 
     def task_params

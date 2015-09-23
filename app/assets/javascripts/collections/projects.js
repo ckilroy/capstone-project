@@ -23,5 +23,19 @@ AsanaClone.Collections.Projects = Backbone.Collection.extend({
     }
 
     return project;
+  },
+
+  getOrFetchTask: function (projectID, taskID) {
+    var project = this.get(projectID);
+    var task;
+
+    if (project) {
+      task = project.tasks().getOrFetch(taskID);
+    } else {
+      task = new AsanaClone.Models.Task({id: taskID});
+      task.fetch();
+    }
+
+    return task;
   }
 });

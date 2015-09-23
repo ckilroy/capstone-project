@@ -22,5 +22,20 @@ AsanaClone.Collections.Users = Backbone.Collection.extend({
     }
 
     return user;
+  },
+
+  getOrFetchTask: function (userID, taskID) {
+    var user = this.get(userID);
+    var task;
+
+    if (user) {
+      task = user.tasks().getOrFetch(taskID);
+    } else {
+      task = new AsanaClone.Models.Task({id: taskID});
+      task.fetch();
+    }
+
+    return task;
   }
+
 })
