@@ -16,7 +16,7 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template({
       task: this.model,
-      tasks: this.collection //still may not need this
+      // tasks: this.collection //still may not need this
     });
 
     this.$el.html(renderedContent);

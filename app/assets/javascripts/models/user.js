@@ -1,18 +1,16 @@
 AsanaClone.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users",
 
+  //comparator by priority
+
   parse: function (response) {
     if (response.workspaces) {
       this.workspaces().set(response.workspaces, {parse: true});
       delete response.workspaces;
     }
-    if (response.assigned_tasks) {
-      this.assigned_tasks().set(response.assigned_tasks, {parse: true});
-      delete response.assigned_tasks;
-    }
-    if (response.created_tasks) {
-      this.created_tasks().set(response.created_tasks, {parse: true});
-      delete response.created_tasks;
+    if (response.user_tasks) {
+      this.user_tasks().set(response.user_tasks, {parse: true});
+      delete response.user_tasks;
     }
 
     return response;
@@ -26,19 +24,11 @@ AsanaClone.Models.User = Backbone.Model.extend({
     return this._workspaces;
   },
 
-  assigned_tasks: function () {
-    if (!this._assigned_tasks) {
-      this._assigned_tasks = new AsanaClone.Collections.Tasks ([], {user: this})
+  user_tasks: function () {
+    if (!this._user_tasks) {
+      this._user_tasks = new AsanaClone.Collections.Tasks ([], {user: this})
     }
 
-    return this._assigned_tasks;
+    return this._user_tasks;
   },
-
-  created_tasks: function () {
-    if (!this._created_tasks) {
-      this._created_tasks = new AsanaClone.Collections.Tasks ([], {user: this})
-    }
-
-    return this._created_tasks;
-  }
 })

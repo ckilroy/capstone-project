@@ -13,4 +13,20 @@ class Task < ActiveRecord::Base
   class_name: "Task",
   foreign_key: "assignee_id"
 
+  def assigned_to_user? (user)
+    return true if self.assignee == user
+    return false;
+  end
+
+  def unassigned?
+    return true if self.assignee == nil
+    return false
+  end
+
+  def assigned_to_project?
+    return false if self.project == nil
+    return true
+  end
+
+
 end
