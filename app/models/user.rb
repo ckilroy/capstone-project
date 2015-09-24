@@ -23,21 +23,20 @@ class User < ActiveRecord::Base
   end
   #refactor, but leave for now?
 
-  def self.find_or_create_by_auth_hash(auth_hash)
+  def self.find_user_by_auth_hash(auth_hash)
     user = User.find_by(
             provider: auth_hash[:provider],
             uid: auth_hash[:uid])
 
-    unless (user)
-      user = User.create!(
-              provider: auth_hash[:provider],
-              uid: auth_hash[:uid],
-              email: auth_hash[:info][:name],
-              name: auth_hash[:info][:name],
-              password: SecureRandom::urlsafe_base64)
-    end
+    user.nil? ? nil : user
+  end
 
-    user
+  def user_setup!
+    default_team_workspace = Workspace.create({name: "Team"})
+    UserWorkspace.create({user_id: self.id, workspace_id: default_team_workspace.id})
+
+    default_personal_workspace = Workspace.create({name: "Personal"})
+    UserWorkspace.create({user_id: self.id, workspace_id: default_personal_workspace.id})
   end
 
   def password=(password)

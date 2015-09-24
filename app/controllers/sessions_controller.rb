@@ -20,9 +20,23 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    user = User.find_or_create_by_auth_hash(auth_hash)
-    sign_in!(user)
-    redirect_to root_url
+    @user = User.find_user_by_auth_hash(auth_hash)
+
+
+    if @user
+      sign_in!(@user)
+      redirect_to root_url
+    else
+      @user = User.create!(
+              provider: auth_hash[:provider],
+              uid: auth_hash[:uid],
+              email: auth_hash[:info][:name],
+              name: auth_hash[:info][:name],
+              password: SecureRandom::urlsafe_base64)
+      @user.user_setup!
+      sign_in!(@user)
+      redirect_to root_url
+    end
   end
 
   def auth_hash
