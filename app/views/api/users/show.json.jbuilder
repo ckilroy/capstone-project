@@ -6,25 +6,11 @@ end
 
 json.tasks do
   json.array! @user.assigned_tasks do |task|
-    json.extract! task, :id, :name, :description, :due_date, :completed, :priority,
-      :creator_id, :assignee_id, :project_id, :created_at, :updated_at
+    json.extract! task, :id, :name, :description, :due_date, :completed, :priority, :creator_id, :assignee_id, :project_id, :created_at, :updated_at, :workspace
   end
   json.array! @user.created_tasks do |task|
     if task.unassigned?
-      json.extract! task, :id, :name, :description, :due_date, :completed, :priority,
-        :creator_id, :assignee_id, :project_id, :created_at, :updated_at, :workspace
+      json.extract! task, :id, :name, :description, :due_date, :completed, :priority, :creator_id, :assignee_id, :project_id, :created_at, :updated_at, :workspace
     end
   end
 end
-#
-# json.assigned_tasks @user.assigned_tasks do |task|
-#   json.extract! task, :id, :name, :description, :due_date, :completed, :priority,
-#     :creator_id, :assignee_id, :project_id, :created_at, :updated_at
-# end
-#
-# json.created_tasks @user.created_tasks do |task|
-#   if task.unassigned?
-#     json.extract! task, :id, :name, :description, :due_date, :completed, :priority,
-#       :creator_id, :assignee_id, :project_id, :created_at, :updated_at
-#   end
-# end

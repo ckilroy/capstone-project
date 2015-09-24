@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in!(@user)
-      @user.user_setup!(user_params)
+      @user.user_setup!
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages

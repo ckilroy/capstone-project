@@ -85,7 +85,6 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     //sets either user.tasks or project.tasks as the collection
     if ($target.data('project-id') !== "") {
       var project = this.collection.get($target.data('project-id'))
-      debugger
       tasks = project.tasks();
     } else {
       var user = this.users.getOrFetch(this.current_user_id);
