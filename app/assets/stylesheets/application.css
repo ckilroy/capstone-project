@@ -97,15 +97,7 @@ body {
   margin-top: 100px;
 }
 
-/*.style {
-  background: #C0B1C7;
-  opacity: 0.5;
-  width: 500px;
-  margin: 80px auto;
-}*/
-
 .login {
-  /*border: 1px solid black;*/
   width: 500px;
   margin: 80px auto;
   color: white;
@@ -144,12 +136,13 @@ body {
 
 .login-input {
   border-top: 1px solid #C0B1C7;
-  padding: 5px;
   float: right;
+  padding: 5px;
   border-radius: 3px;
   -webkit-transition: all 0.30s ease-in-out;
   background: white;
   color: black;
+  position: relative;
 }
 
 .login-input:focus {
@@ -159,11 +152,12 @@ body {
 
 .login-button {
   background: #C0B1C7;
-  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
+  background-image: linear-gradient(to bottom, #C0B1C7, #A28BAD);
   padding: 10px;
   display: block;
   border-radius: 3px;
   box-shadow: 1px 1px 1px #666666;
+  position: relative;
 }
 
 .login-button:hover {
@@ -173,11 +167,13 @@ body {
 
 .create-button {
   background: #C0B1C7;
-  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
-  padding: 30px;
+  background-image: linear-gradient(to bottom, #C0B1C7, #9984A3);
+  padding: 20px;
   display: block;
   box-shadow: 2px 2px 2px #666666;
   border-radius: 6px;
+  width: 180px;
+  text-align: center;
 }
 
 .create-button:hover {
@@ -187,16 +183,23 @@ body {
 
 .fb-create-button {
   background: #C0B1C7;
-  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
-  padding: 30px;
+  background-image: linear-gradient(to bottom, #C0B1C7, #9984A3);
+  padding: 20px;
   display: block;
   box-shadow: 2px 2px 2px #666666;
   border-radius: 6px;
+  width: 180px;
+  text-align: center;
 }
 
 .fb-create-button:hover {
   background: #D8C5E0;
   background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+}
+
+.access {
+  width: 100px;
+  border: 1px solid black;
 }
 
 /*sigin end #############################*/
