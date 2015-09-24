@@ -1,16 +1,24 @@
-<h1>Sign Up</h1>
+<h1 class="site-label">ImGonna</h1>
+<p>
 
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-  <label for="email">Email: <input id="email" name="user[email]" type="text"></label>
-  <label for="password">Password:<input id="password" name="user[password]" type="password"></label>
+</p>
 
-  <button>Create New User</button>
-</form>
-<a href="/session/new">Sign In</a>
+<div class="style"></div>
+  <div class="login group">
+    <h1 class="login-head">Sign Up</h1>
 
-<% if flash[:errors] %>
-<div >
-<%= flash[:errors].join("<br>").html_safe %>
-</div>
-<% end %>
+    <form class="login-form" action="/users" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+      <label class="login-label" for="email">Email: <input class="login-input" id="email" name="user[email]" type="text"></label> <br>
+      <label class="login-label" for="password">Password:<input class="login-input" id="password" name="user[password]" type="password"></label>
+      <br>
+      <button class="login-button">Create New User</button>
+    </form>
+    <a href="/session/new">Sign In</a>
+
+    <% if flash[:errors] %>
+    <div >
+    <%= flash[:errors].join("<br>").html_safe %>
+    </div>
+    <% end %>
+  </div>

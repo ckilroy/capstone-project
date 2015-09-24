@@ -8,6 +8,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    // "_=_": "workShow"
     "": "workShow",
     "workspaces/new": "workNew",
     "workspaces/:id": "workShow",

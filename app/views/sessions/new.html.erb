@@ -1,18 +1,26 @@
-<h1>Sign In</h1>
+<h1 class="site-label">ImGonna</h1>
+<p>
 
-<form action="/session" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-  <label for="email">Email: <input id="email" name="user[email]" type="text"></label>
-  <label for="password">Password: <input id="password" name="user[password]" type="password"></label>
+</p>
 
-  <button>Sign In</button>
-</form>   <br>
+<div class="style"></div>
+  <div class="login group">
+    <h1 class="login-head">Sign In</h1>
 
-<% if flash[:errors] %>
-<div >
-<%= flash[:errors].join("<br>").html_safe %>
-</div>
-<% end %>
+    <form class="login-form" action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+      <label class="login-label" for="email">Email: <input class="login-input" id="email" name="user[email]" type="text"></label> <br>
+      <label class="login-label" for="password">Password: <input class="login-input" id="password" name="user[password]" type="password"></label>
+      <br>
+      <button class="login-button">Sign In</button>
+    </form>   <br>
+
+    <% if flash[:errors] %>
+    <div >
+    <%= flash[:errors].join("<br>").html_safe %>
+    </div>
+    <% end %>
 
 
-Don't have an account? <a href="/users/new">Create Account</a> or <a href="/auth/facebook">Sign in with Facebook</a>
+    Don't have an account? <a href="/users/new" class="create-button">Create Account</a> or <a class="fb-create-button" href="/auth/facebook"><img class="_4z_e img" src="https://static.xx.fbcdn.net/rsrc.php/v2/yE/r/pO2d5bFWS8j.png" alt="" width="20" height="20"> Log in with Facebook </a>
+  </div>

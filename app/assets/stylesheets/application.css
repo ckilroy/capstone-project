@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p {
+html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p, input, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -31,7 +31,25 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p {
   background: transparent;
 }
 
-input, button,
+html {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+    		#E1D9E4,
+    		transparent
+    	),
+    	linear-gradient(
+    		45deg,
+    		#fff,
+    		transparent
+    	),
+    	linear-gradient(
+    		-45deg,
+    		#7E6987,
+    		transparent
+    	);
+}
 
 ul {
   list-style: none;
@@ -66,8 +84,122 @@ body {
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  background: #C0B1C7;
 }
+
+/*signins##################################*/
+
+.site-label {
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 56px;
+  font-weight: bold;
+  color: white;
+  margin-top: 100px;
+}
+
+/*.style {
+  background: #C0B1C7;
+  opacity: 0.5;
+  width: 500px;
+  margin: 80px auto;
+}*/
+
+.login {
+  /*border: 1px solid black;*/
+  width: 500px;
+  margin: 80px auto;
+  color: white;
+  position: relative;
+  display: block;
+}
+
+.login::after {
+  content: "";
+  background: #C0B1C7;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.login-head {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px
+}
+
+.login-form {
+  width: 400px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.login-label {
+  float: left;
+}
+
+.login-input {
+  border-top: 1px solid #C0B1C7;
+  padding: 5px;
+  float: right;
+  border-radius: 3px;
+  -webkit-transition: all 0.30s ease-in-out;
+  background: white;
+  color: black;
+}
+
+.login-input:focus {
+  box-shadow: 0px 0px 3px 0px #BC94E0;
+  border: 1px solid #BC94E0;
+}
+
+.login-button {
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
+  padding: 10px;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #666666;
+}
+
+.login-button:hover {
+  background: #D8C5E0;
+  background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+}
+
+.create-button {
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
+  padding: 30px;
+  display: block;
+  box-shadow: 2px 2px 2px #666666;
+  border-radius: 6px;
+}
+
+.create-button:hover {
+  background: #D8C5E0;
+  background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+}
+
+.fb-create-button {
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #9379AB);
+  padding: 30px;
+  display: block;
+  box-shadow: 2px 2px 2px #666666;
+  border-radius: 6px;
+}
+
+.fb-create-button:hover {
+  background: #D8C5E0;
+  background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+}
+
+/*sigin end #############################*/
 
 /*header ################################# */
 .header {
