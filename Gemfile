@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'jquery-ui-rails'
 
+gem 'omniauth-facebook'
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
