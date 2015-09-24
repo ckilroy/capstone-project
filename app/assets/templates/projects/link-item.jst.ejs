@@ -1,3 +1,5 @@
 <a href="<%="#/workspaces/" + workspace.id %>" class="project-link" data-id="<%= project.id %>">
-  <h5><%=project.escape('name')%></h5>
+  <% if (project.escape('name') !== "No Project") { %>
+      <h5> <%= project.escape('name') %> </h5>
+  <% } %>
 </a>

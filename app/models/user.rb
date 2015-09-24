@@ -33,10 +33,12 @@ class User < ActiveRecord::Base
 
   def user_setup!
     default_team_workspace = Workspace.create({name: "Team"})
-    UserWorkspace.create({user_id: self.id, workspace_id: default_team_workspace.id})
+      UserWorkspace.create({user_id: self.id, workspace_id: default_team_workspace.id})
+      Project.create({name: "No Project", workspace_id: default_team_workspace.id, on_dashboard: false})
 
     default_personal_workspace = Workspace.create({name: "Personal"})
-    UserWorkspace.create({user_id: self.id, workspace_id: default_personal_workspace.id})
+      UserWorkspace.create({user_id: self.id, workspace_id: default_personal_workspace.id})
+      Project.create({name: "No Project", workspace_id: default_personal_workspace.id, on_dashboard: false})
   end
 
   def password=(password)

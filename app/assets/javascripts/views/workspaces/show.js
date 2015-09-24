@@ -93,7 +93,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     var subview = new AsanaClone.Views.TaskShow({
       collection: tasks,
-      taskID: taskID
+      taskID: taskID,
+      project: project
     });
 
     this._subCurrentView && this._subCurrentView.remove();
