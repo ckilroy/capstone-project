@@ -7,9 +7,6 @@ module Api
 
       if @workspace.save
         UserWorkspace.create(user_id: current_user.id, workspace_id: @workspace.id)
-        Project.create({name: "No Project", workspace_id: @workspace.id, on_dashboard: false})
-        # TODO: hacky solution: either refactor to handle  or validate that user
-        #has not named their project "No Project"
         render json: @workspace
       else
         render json: @workspace.errors.full_messages, status: :unprocessable_entity

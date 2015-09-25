@@ -33,7 +33,6 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   },
 
   renderTaskMiniForm: function (e) {
-    debugger
     var subview = new AsanaClone.Views.TaskMiniForm({
       collection: this.collection,
       current_user_id: this.model.id,

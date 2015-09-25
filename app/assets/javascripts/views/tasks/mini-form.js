@@ -7,7 +7,7 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
     this.current_user_id = options.current_user_id;
   },
 
-  create: function (event) {
+  createTask: function (event) {
     event.preventDefault();
     if (this.collection.project === undefined) {
       this.createUserTask(event);
@@ -20,7 +20,7 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
     event.preventDefault();
       this.collection.create({
         creator_id: this.current_user_id,
-        workspace_id: this.workspace_id,
+        workspace_id: this.workspace.id,
         name: this.$('input').val()
       }, {wait: true});
       this.hideForm();
