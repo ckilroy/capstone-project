@@ -33,7 +33,7 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p, input, button 
 
 html {
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   background:
     linear-gradient(
     		#E1D9E4,
@@ -99,7 +99,7 @@ body {
 
 .login {
   width: 500px;
-  height: 350px;
+  height: 470px;
   margin: 80px auto;
   color: white;
   position: relative;
@@ -116,34 +116,54 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  border-radius: 5px;
+  border-radius: 20px;
+}
+
+.login-up {
+  width: 500px;
+  height: 300px;
+  margin: 100px auto;
+  color: white;
+  position: relative;
+  display: block;
+}
+
+.login-up::after {
+  content: "";
+  background: #C0B1C7;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 20px;
 }
 
 .login-head {
   text-align: center;
   font-size: 24px;
-  padding: 10px
+  padding: 20px
 }
 
 .login-form {
-  width: 400px;
-  border: 1px solid black;
-  margin: 0 auto;
+  width: 270px;
+  margin: 15px auto;
 }
 
 .login-label {
-  float: left;
+  float: right;
 }
 
 .login-input {
   border-top: 1px solid #C0B1C7;
-  float: right;
   padding: 5px;
   border-radius: 3px;
   -webkit-transition: all 0.30s ease-in-out;
   background: white;
   color: black;
-  position: relative;
+  margin-bottom: 5px;
 }
 
 .login-input:focus {
@@ -158,7 +178,10 @@ body {
   display: block;
   border-radius: 3px;
   box-shadow: 1px 1px 1px #666666;
-  position: relative;
+  width: 115px;
+  text-align: center;
+  float: right;
+  margin-top: 5px;
 }
 
 .login-button:hover {
@@ -173,8 +196,10 @@ body {
   display: block;
   box-shadow: 2px 2px 2px #666666;
   border-radius: 6px;
-  width: 180px;
+  width: 240px;
   text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .create-button:hover {
@@ -189,8 +214,9 @@ body {
   display: block;
   box-shadow: 2px 2px 2px #666666;
   border-radius: 6px;
-  width: 180px;
+  width: 240px;
   text-align: center;
+  margin-top: 5px;
 }
 
 .fb-create-button:hover {
@@ -199,8 +225,20 @@ body {
 }
 
 .access {
-  width: 100px;
-  border: 1px solid black;
+  width: 285px;
+  margin: 25px auto;
+}
+
+.or {
+  text-align: center;
+}
+
+.login-link {
+  position: absolute;
+  display: block;
+  padding: 20px;
+  right: 90px;
+  text-decoration: underline;
 }
 
 /*sigin end #############################*/
@@ -298,7 +336,7 @@ li:hover .header-dropdown{
   /*height i want 100%*/
 }
 
-.sidebar a {
+.sidebar li {
   display: block;
   padding: 10px 0px;
 }
@@ -316,6 +354,7 @@ li:hover .header-dropdown{
 
 .sidebar-links > li:hover {
   background: #C0B1C7;
+  cursor: pointer;
 }
 
 #projects > li:hover {

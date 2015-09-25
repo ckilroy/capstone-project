@@ -9,8 +9,8 @@
 
     <form class="login-form group" action="/session" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
-      <label class="login-label" for="email">Email: <input class="login-input" id="email" name="user[email]" type="text"></label> <br>
-      <label class="login-label" for="password">Password: <input class="login-input" id="password" name="user[password]" type="password"></label>
+      <label class="login-label" for="email">Email:  <input class="login-input" id="email" name="user[email]" type="text"></label> <br>
+      <label class="login-label" for="password">Password:  <input class="login-input" id="password" name="user[password]" type="password"></label>
       <br>
       <button class="login-button">Sign In</button>
     </form>   <br>
@@ -22,6 +22,6 @@
     <% end %>
 
   <div class="access group">
-        Don't have an account? <a href="/users/new" class="create-button">Create Account</a> <div class="or">or </div> <a class="fb-create-button" href="/auth/facebook"><img class="_4z_e img" src="https://static.xx.fbcdn.net/rsrc.php/v2/yE/r/pO2d5bFWS8j.png" alt="" width="20" height="20"> Log in with Facebook </a>
+        Don't have an account? <a href="/users/new" class="create-button">Create Account</a> <div class="or"> or </div> <a class="fb-create-button" href="/auth/facebook"><img class="_4z_e img" src="https://static.xx.fbcdn.net/rsrc.php/v2/yE/r/pO2d5bFWS8j.png" alt="" width="20" height="20"> Log in with Facebook </a>
   </div>
 </div>
