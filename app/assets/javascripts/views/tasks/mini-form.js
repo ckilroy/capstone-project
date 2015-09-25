@@ -9,7 +9,6 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
 
   createTask: function (event) {
     event.preventDefault();
-    debugger
     if (this.collection.project === undefined) {
       this.createUserTask(event);
     } else {
