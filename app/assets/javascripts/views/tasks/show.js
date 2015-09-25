@@ -3,6 +3,7 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.taskID = options.taskID;
+    this.users = options.users;
     this.project = options.projects.get(options.projectID);
     this.tasks = new AsanaClone.Collections.Tasks([], {project: this.project});
     this.listenTo(this.tasks, "change", this.render);
@@ -20,7 +21,8 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
 
     var renderedContent = this.template({
       task: task,
-      project: this.project
+      project: this.project,
+      users: this.users
     });
 
     this.$el.html(renderedContent);
@@ -28,14 +30,14 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   },
 
   editTask: function(e) {
-    debugger
+    var task = this.tasks.getOrFetch(this.taskID);
     e.preventDefault();
     var $target = $(e.currentTarget);
     var field = $target.data('field');
     var $input = $("<input class=\"edit-task\">");
 
     $input.data('field', field);
-    $input.val(this.model.escape(field));
+    $input.val(task.escape(field));
     $target.removeClass('editable');
     $target.html($input);
     $input.focus();
@@ -43,12 +45,13 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
 
   saveTask: function (e) {
     e.preventDefault();
+    var task = this.tasks.getOrFetch(this.taskID);
     var $target = $(e.currentTarget);
     var field = $target.data('field');
     var newVal = $target.val();
 
-    this.model.set(field, newVal);
-    this.model.save();
+    task.set(field, newVal);
+    task.save();
     this.render();
   },
 
