@@ -27,7 +27,7 @@ AsanaClone.Views.WorkspaceForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         that.collection.add(that.model, {merge: true});
-        Backbone.history.navigate("", {trigger: true});
+        Backbone.history.navigate("workspaces/" + that.model.id, {trigger: true});
       },
 
       error: function (model, response) {

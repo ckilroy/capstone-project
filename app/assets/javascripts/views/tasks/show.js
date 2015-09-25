@@ -2,8 +2,10 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   template: JST['tasks/show'],
 
   initialize: function (options) {
+    this.taskID = options.taskID
     this.project = options.projects.get(options.projectID)
-    this.listenTo(this.model, "sync", this.render)
+    this.tasks = new AsanaClone.Collections.Tasks([], {project: this.project});
+    this.listenTo(this.tasks, "sync", this.render)
   },
 
   events: {
@@ -14,8 +16,10 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   },
 
   render: function () {
+    var task = this.tasks.getOrFetch(this.taskID)
+
     var renderedContent = this.template({
-      task: this.model,
+      task: task,
       project: this.project
     })
 

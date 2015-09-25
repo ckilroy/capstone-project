@@ -5,7 +5,6 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this.workspaces = options.workspaces;
     this.current_user_id = options.$rootEl.data('user');
     this.users = new AsanaClone.Collections.Users();
-    this.tasks = new AsanaClone.Collections.Tasks();
     // TODO: initialize users collection in router too?
   },
 
@@ -47,9 +46,9 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
 
     var showView = new AsanaClone.Views.WorkspaceShow({
       model: workspace,
+      collection: this.workspaces,
       current_user_id: this.current_user_id,
       users: this.users,
-      tasks: this.tasks
     });
 
     var itemView = new AsanaClone.Views.WorkspaceItem({model: workspace})

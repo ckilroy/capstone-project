@@ -3,9 +3,10 @@ Backbone.LinkFormView = Backbone.View.extend({
 
   events: {
     "click a": "showForm", // click a link, show the form
-    // "click .close": "hideForm", //click close class, hide the form
-    "submit": "createTask", //create is and underscore collection method... will be defined specifically in views using LinkFormView
-    "keydown textarea": "maybeCreate", //allows creation based on pressing enter, keycode 13
+    "click .close": "hideForm", //click close class, hide the form
+    "submit .task-form": "createTask", //create is and underscore collection method... will be defined specifically in views using LinkFormView
+    "submit": "create",
+    "keydown text": "maybeCreate", //allows creation based on pressing enter, keycode 13
   },
 
   render: function () {

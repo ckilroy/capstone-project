@@ -4,8 +4,9 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     // TODO: refactor to just have current user object up her... will affect a few functions
+    //collection:workspaces
+    //model:workspace
     this.users = options.users;
-    this.tasks = options.tasks;
     this.current_user_id = options.current_user_id;
     this.projects = this.model.projects();
     this.listenTo(this.model, "sync", this.render);
@@ -46,7 +47,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
   renderProjectForm: function () {
     var view = new AsanaClone.Views.ProjectForm({
-      collection: this.collection
+      projects: this.projects
     });
     this.addSubview('#project-form', view);
   },
@@ -84,10 +85,10 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     e.preventDefault();
     var $target = $(e.currentTarget);
     var projectID = $target.data('project-id');
-    var task = this.tasks.getOrFetch($target.data('task-id'))
+    var taskID = $target.data('task-id');
 
     var subview = new AsanaClone.Views.TaskShow({
-       model: task,
+       taskID: taskID,
        projectID: projectID,
        projects: this.projects
      });
@@ -96,30 +97,4 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this._rightPane = subview;
     this.addSubview('#task-detail-show', subview);
   }
-
-  // renderTaskDetail: function (e) {
-  //   e.preventDefault();
-  //   var $target = $(e.currentTarget);
-  //   var taskID = $target.data('task-id');
-  //   var tasks;
-  //
-  //   //sets either user.tasks or project.tasks as the collection
-  //   if ($target.data('project-id') !== "") {
-  //     var project = this.collection.get($target.data('project-id'))
-  //     tasks = project.tasks();
-  //   } else {
-  //     var user = this.users.getOrFetch(this.current_user_id);
-  //     tasks = user.tasks();
-  //   }
-  //
-  //   var subview = new AsanaClone.Views.TaskShow({
-  //     collection: tasks,
-  //     taskID: taskID,
-  //     project: project
-  //   });
-  //
-  //   this._rightPane && this._rightPane.remove();
-  //   this._rightPane = subview;
-  //   this.addSubview('#task-detail-show', subview);
-  // },
 })
