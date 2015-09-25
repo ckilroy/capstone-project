@@ -3,6 +3,7 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
   linkTemplate: JST['tasks/mini_form_link'],
 
   initialize: function (options) {
+    this.workspace = options.workspace
     this.current_user_id = options.current_user_id;
   },
 
@@ -19,9 +20,9 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
     event.preventDefault();
       this.collection.create({
         creator_id: this.current_user_id,
-        name: this.$('input').val() //add other values like description later...
-      }, {wait: true}); //adding new task to collection, (attrs, options),
-      //waits for server before setting attributes
+        workspace_id: this.workspace_id,
+        name: this.$('input').val()
+      }, {wait: true});
       this.hideForm();
   },
 
@@ -30,9 +31,8 @@ AsanaClone.Views.TaskMiniForm = Backbone.LinkFormView.extend({
       this.collection.create({
         creator_id: this.current_user_id,
         project_id: this.collection.project.id,
-        name: this.$('input').val() //add other values like description later...
-      }, {wait: true}); //adding new task to collection, (attrs, options),
-      //waits for server before setting attributes
+        name: this.$('input').val()
+      }, {wait: true});
       this.hideForm();
   },
 })

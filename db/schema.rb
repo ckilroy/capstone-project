@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924135757) do
+ActiveRecord::Schema.define(version: 20150925000709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,21 +28,23 @@ ActiveRecord::Schema.define(version: 20150924135757) do
   add_index "projects", ["workspace_id"], name: "index_projects_on_workspace_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                         null: false
     t.text     "description"
     t.datetime "due_date"
-    t.boolean  "completed",   default: false
+    t.boolean  "completed",    default: false
     t.integer  "priority"
-    t.integer  "creator_id",                  null: false
+    t.integer  "creator_id",                   null: false
     t.integer  "assignee_id"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "workspace_id"
   end
 
   add_index "tasks", ["assignee_id"], name: "index_tasks_on_assignee_id", using: :btree
   add_index "tasks", ["creator_id"], name: "index_tasks_on_creator_id", using: :btree
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["workspace_id"], name: "index_tasks_on_workspace_id", using: :btree
 
   create_table "user_workspaces", force: :cascade do |t|
     t.integer  "user_id"

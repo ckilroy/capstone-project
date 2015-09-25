@@ -6,7 +6,7 @@ window.AsanaClone = {
   initialize: function() {
     new AsanaClone.Routers.Router({
       $rootEl: $('#app-container'),
-      $navEl: $('#workspace-idx'),
+      $navEl: $('#header-links'),
       workspaces: new AsanaClone.Collections.Workspaces()
     })
     Backbone.history.start();

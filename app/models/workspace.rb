@@ -6,7 +6,7 @@ class Workspace < ActiveRecord::Base
 
   has_many :projects, dependent: :destroy
 
-  has_many :tasks, :through => :projects, source: :tasks
+  has_many :tasks
 
   def is_member?(user)
     return true if users.any? { |workspace_user| workspace_user.id == user.id}

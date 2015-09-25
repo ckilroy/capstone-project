@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
 
   belongs_to :project
 
-  has_one :workspace, :through => :project, source: :workspace
+  belongs_to :workspace
 
   belongs_to :creator,
   class_name: "Task",

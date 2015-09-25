@@ -1,10 +1,10 @@
 AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   template: JST["users/taskshow"],
-  //can i refactor to have this be the same as project show now that i changed
-  //user_tasks to tasks?
-  initialize: function () {
+
+  initialize: function (options) {
     //this.model = user
     //this collection = user tasks
+    this.workspace = options.workspace
     this.collection = this.model.tasks();
     // this.listenTo(this.model, "sync", this.render);
     // this.listenTo(this.model, "sync", this.renderTaskMiniForm)
@@ -15,17 +15,11 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  events: {
-    "click .editable": "editTask",
-    "blur .edit-task": "saveTask",
-    "keyup .edit-task": "maybeSaveTask",
-    // "click .task-completed": "completeTask"
-  },
-
   render: function () {
     var renderedContent = this.template({user: this.model});
 
     this.$el.html(renderedContent);
+    //do I need to attach subviews here?
     this.renderTaskMiniForm();
     return this;
   },
@@ -33,17 +27,17 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   addTaskLinkItem: function (task) {
   var subview = new AsanaClone.Views.TaskLinkItem({
     model: task,
-    // collection: this.collection
   });
-  //probably need to listen to sync and render in this view
 
     this.addSubview("#tasks-list", subview)
   },
 
   renderTaskMiniForm: function (e) {
+    debugger
     var subview = new AsanaClone.Views.TaskMiniForm({
       collection: this.collection,
-      current_user_id: this.model.id
+      current_user_id: this.model.id,
+      workspace: this.workspace
     });
     this.addSubview("#task-form", subview);
   },

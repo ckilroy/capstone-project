@@ -3,7 +3,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
 
   initialize: function (options) {
-    //refactor to just have current user object up her... affects a few functions
+    // TODO: refactor to just have current user object up her... will affect a few functions
     this.users = options.users
     this.current_user_id = options.current_user_id
     this.collection = this.model.projects();
@@ -22,12 +22,13 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var renderedContent = this.template({workspace: this.model});
-
+    //renders the basic page layout
+    var renderedContent = this.template();
     this.$el.html(renderedContent);
+
     this.attachSubviews();
-    // this.renderProjectForm();
-    if (this._currentView === undefined) {
+
+    if (this._middlePane === undefined) {
       this.userTaskShow();
     }
     return this;
@@ -57,9 +58,9 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
       current_user_id: this.current_user_id
     });
 
-    this._currentView && this._currentView.remove();
-    this._subCurrentView && this._subCurrentView.remove();
-    this._currentView = view;
+    this._middlePane && this._middlePane.remove();
+    this._rightPane && this._rightPane.remove();
+    this._middlePane = view;
     this.addSubview('#project-show', view);
   },
 
@@ -67,14 +68,15 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     var user = this.users.getOrFetch(this.current_user_id);
 
     var userTaskShow = new AsanaClone.Views.UserTaskShow({
-      model: user
+      model: user, workspace: this.model 
     })
 
-    this._currentView && this._currentView.remove();
-    this._subCurrentView && this._subCurrentView.remove();
-    this._currentView = userTaskShow;
+    this._middlePane && this._middlePane.remove();
+    this._rightPane && this._rightPane.remove();
+    this._middlePane = userTaskShow;
     this.addSubview('#project-show', userTaskShow)
   },
+  // TODO: change #project-show to something more semantic like middle-pane
 
   renderTaskDetail: function (e) {
     e.preventDefault();
@@ -97,8 +99,8 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
       project: project
     });
 
-    this._subCurrentView && this._subCurrentView.remove();
-    this._subCurrentView = subview;
+    this._rightPane && this._rightPane.remove();
+    this._rightPane = subview;
     this.addSubview('#task-detail-show', subview);
   },
 })

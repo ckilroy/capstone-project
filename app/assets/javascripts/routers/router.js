@@ -5,11 +5,11 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     this.workspaces = options.workspaces;
     this.current_user_id = options.$rootEl.data('user');
     this.users = new AsanaClone.Collections.Users();
+    // TODO: initialize users collection in router too?
   },
 
   routes: {
     "": "workShow",
-    "_=_": "workShow",
     "workspaces/new": "workNew",
     "workspaces/:id": "workShow",
     "dashboard/:id": "dashboard"
@@ -20,24 +20,25 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
     var indexView = new AsanaClone.Views.WorkspacesIndex({
       collection: this.workspaces
     });
-  //
+
+    this.$navEl.find('#workspace-idx').html(indexView.render().$el);
+  },
   //   // QUESTION what if i WANT this to be a zombie? can i do that?
   //   //right now i have this in a dropdown, so it is always on the page
   //   //but i will eventually only have it show up on a click - maybe
   //   //then i can close/remove view manually... i like the url change
   //   //when you go to view a project and I don't feel like it makes
   //   //sense to have this be a composite view...
-    this.$navEl.html(indexView.render().$el);
-  },
 
 
   workShow: function (id) {
+    //will get user's first workspace if none selected
     if (id === null) {
       this.workspaceID(this.workShow.bind(this, id))
       return;
     }
 
-    var workspace = this._userWorkspaces.getOrFetch(id)
+    var workspace = this.workspaces.getOrFetch(id)
 
     var showView = new AsanaClone.Views.WorkspaceShow({
       model: workspace,
@@ -45,8 +46,10 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
       users: this.users
     });
 
+    var itemView = new AsanaClone.Views.WorkspaceItem({model: workspace})
+
     this.workIndex();
-    // this.userTaskShow();
+    this.$navEl.find('#current-workspace').html(itemView.render().$el)
     this._swapView(showView);
   },
 
