@@ -15,7 +15,7 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
 
   render: function () {
     var renderedContent = this.template({
-      task: this.model,
+      task: this.model
     });
 
     this.$el.html(renderedContent);
@@ -25,7 +25,7 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   editTask: function(e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
-    var field = $target.data('field') //right now, only name, but will be adding others
+    var field = $target.data('field')
     var $input = $("<input class=\"edit-task\">");
 
     $input.data('field', field);

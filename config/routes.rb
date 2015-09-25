@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session
 
   get "/auth/:provider/callback", to: "sessions#omniauth"
+  get "users/currentuser", to: "users#current"
 
   namespace :api, defaults: {format: :json} do
     resources :workspaces

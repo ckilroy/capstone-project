@@ -19,14 +19,13 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
     var renderedContent = this.template({user: this.model});
 
     this.$el.html(renderedContent);
-    //do I need to attach subviews here?
     this.renderTaskMiniForm();
     return this;
   },
 
   addTaskLinkItem: function (task) {
   var subview = new AsanaClone.Views.TaskLinkItem({
-    model: task,
+    model: task
   });
 
     this.addSubview("#tasks-list", subview)
