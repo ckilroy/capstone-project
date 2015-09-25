@@ -414,21 +414,49 @@ li:hover .header-dropdown{
 }
 
 .project-show p {
-  padding: 3px;
+  /*padding: 3px;*/
   font-size: 15px;
 }
 
 .project-show button {
-  float: right;
   padding: 0px 3px 0px 3px;
   border: 1px solid #7E6987;
+  position: absolute;
+  vertical-align: middle;
+  margin: 0 auto;
+  float: right;
+  display: block;
+  border-radius: 2px;
+  top: 2px;
+  left: 98%;
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #A28BAD);
 }
 
-.tasks-list > li {
+.project-show button:hover {
+  background: #D8C5E0;
+  background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+}
+
+.tasks-window li {
   border-bottom: 1px solid #7E6987;
   /*added*/
   display: flex;
   flex-direction: column;
+}
+
+.tasks-window label {
+  display: inline-block;
+  width: 330px;
+}
+
+.tasks-window p {
+  position: relative;
+  display: block;
+  margin-left: 30px;
+  margin-top: 8px;
+  padding: 5px;
+  width: 260px;
 }
 
 input[type="checkbox"] {
@@ -444,11 +472,18 @@ label.tasks-check {
   position: relative;
 }
 
+input[type="checkbox"]:hover + label::before {
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #A28BAD);
+  border: 1px solid #7E6987;
+}
+
 label.tasks-check::before {
   content: "";
   width: 15px;
   height: 15px;
   border: 1px solid black;
+  border-radius: 50%;
   display: block;
   position: absolute;
   top: 11px;
@@ -460,7 +495,14 @@ input[type="checkbox"]:checked + label {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background: black;
+  background: #C0B1C7;
+  background-image: linear-gradient(to bottom, #C0B1C7, #A28BAD);
+  border: 1px solid #7E6987;
+}
+
+input[type="checkbox"]:checked:hover + label::before {
+  background: transparent;
+  border: 1px solid #7E6987;
 }
 
 @keyframes done {

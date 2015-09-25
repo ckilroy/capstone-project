@@ -13,7 +13,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     this.collection = this.model.tasks();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "sync", this.renderTaskMiniForm);
-    this.listenTo(this.collection, "add", this.addTaskLinkItem);
+    this.listenTo(this.collection, "add change:completed", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
       this.addTaskLinkItem(task);
@@ -31,13 +31,22 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   addTaskLinkItem: function (task) {
+    var id = "#task" + task.id;
+
+    if (this.$el.find(id).length === 1) {
+      this.$el.find(id).parent().remove();
+    }
+
     var subview = new AsanaClone.Views.TaskLinkItem({
       model: task,
-      collection: this.collection //changed from model
+      collection: this.collection
     });
-    //probably need to listen to sync and render in this view
 
-    this.addSubview("#tasks-list", subview);
+    if (task.escape('completed') === "false") {
+        this.addSubview("#tasks-list", subview);
+    } else {
+        this.addSubview("#completed-tasks-list", subview);
+    }
   },
 
   renderTaskMiniForm: function (e) {

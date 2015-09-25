@@ -5,7 +5,7 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
     this.taskID = options.taskID;
     this.project = options.projects.get(options.projectID);
     this.tasks = new AsanaClone.Collections.Tasks([], {project: this.project});
-    this.listenTo(this.tasks, "sync", this.render);
+    this.listenTo(this.tasks, "change", this.render);
   },
 
   events: {
@@ -28,6 +28,7 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   },
 
   editTask: function(e) {
+    debugger
     e.preventDefault();
     var $target = $(e.currentTarget);
     var field = $target.data('field');

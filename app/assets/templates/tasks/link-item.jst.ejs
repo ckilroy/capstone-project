@@ -3,10 +3,9 @@
       checked
     <% } %>>
     <label for="<%="task" + task.id%>" class="tasks-check">
-      <p class="editable" data-id="<%= task.id %>" data-field="name">
-          <%=task.escape('name')%>
-      </p>
-    </label>
+    <p class="editable" data-id="<%= task.id %>" data-field="name">
+        <%=task.escape('name')%>
+    </p>
 <button data-task-id="<%= task.id %>" data-project-id="<%= task.escape('project_id') %>" class="task-detail">></button>
 
 
