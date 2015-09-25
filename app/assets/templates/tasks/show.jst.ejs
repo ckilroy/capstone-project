@@ -21,7 +21,11 @@
 <div class="task-show">
   <h4 class="project-name">  </h4>
 
-  <input type="checkbox" class="task-completed">
+
+  <input type="checkbox" name="task-check" data-task-id="<%= task.id %>"
+    <% if (task.escape('completed') === true) { %>
+      checked
+    <% } %>>
 
   <div id="task-name" class="editable" data-field="name">
     <%= task.escape('name') %>

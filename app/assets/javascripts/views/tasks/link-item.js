@@ -4,13 +4,14 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   tagName: "li",
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync change", this.render);
   },
 
   events: {
     "click .editable": "editTask",
     "blur .edit-task": "saveTask",
-    "keyup .edit-task": "maybeSaveTask"
+    "keyup .edit-task": "maybeSaveTask",
+    'click [type="checkbox"]': "completeTask"
   },
 
   render: function () {
@@ -25,7 +26,7 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
   editTask: function(e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
-    var field = $target.data('field')
+    var field = $target.data('field');
     var $input = $("<input class=\"edit-task\">");
 
     $input.data('field', field);
@@ -52,4 +53,9 @@ AsanaClone.Views.TaskLinkItem = Backbone.CompositeView.extend({
       this.saveTask(e);
     }
   },
-})
+
+  completeTask: function (e) {
+    e.preventDefault();
+    this.model.save({completed: (!this.model.get('completed'))});
+  }
+});

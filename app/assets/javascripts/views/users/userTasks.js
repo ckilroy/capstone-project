@@ -4,11 +4,11 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     //this.model = user
     //this collection = user tasks
-    this.workspace = options.workspace
+    this.workspace = options.workspace;
     this.collection = this.model.tasks();
     // this.listenTo(this.model, "sync", this.render);
     // this.listenTo(this.model, "sync", this.renderTaskMiniForm)
-    this.listenTo(this.collection, "add", this.addTaskLinkItem);
+    this.listenTo(this.collection, "add change:completed", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
       this.addTaskLinkItem(task);
@@ -24,11 +24,21 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
   },
 
   addTaskLinkItem: function (task) {
-  var subview = new AsanaClone.Views.TaskLinkItem({
-    model: task
-  });
+    var id = "#task" + task.id;
+    
+    if (this.$el.find(id).length === 1) {
+      this.$el.find(id).parent().remove();
+    }
 
-    this.addSubview("#tasks-list", subview)
+    var subview = new AsanaClone.Views.TaskLinkItem({
+      model: task
+    });
+
+    if (task.escape('completed') === "false") {
+        this.addSubview("#tasks-list", subview);
+    } else {
+        this.addSubview("#completed-tasks-list", subview);
+    }
   },
 
   renderTaskMiniForm: function (e) {
@@ -39,4 +49,4 @@ AsanaClone.Views.UserTaskShow = Backbone.CompositeView.extend({
     });
     this.addSubview("#task-form", subview);
   },
-})
+});

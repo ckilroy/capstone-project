@@ -55,7 +55,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   renderProjectShow: function (e) {
     e.preventDefault();
     $target = $(e.currentTarget);
-    var project = this.projects.get($target.data('id'))
+    var project = this.projects.get($target.data('id'));
     var view = new AsanaClone.Views.ProjectShow({
       model: project,
       current_user_id: this.current_user_id
@@ -72,7 +72,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     var userTaskShow = new AsanaClone.Views.UserTaskShow({
       model: user, workspace: this.model
-    })
+    });
 
     this._middlePane && this._middlePane.remove();
     this._rightPane && this._rightPane.remove();
@@ -97,4 +97,4 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this._rightPane = subview;
     this.addSubview('#task-detail-show', subview);
   }
-})
+});

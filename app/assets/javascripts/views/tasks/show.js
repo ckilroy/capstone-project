@@ -2,26 +2,26 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   template: JST['tasks/show'],
 
   initialize: function (options) {
-    this.taskID = options.taskID
-    this.project = options.projects.get(options.projectID)
+    this.taskID = options.taskID;
+    this.project = options.projects.get(options.projectID);
     this.tasks = new AsanaClone.Collections.Tasks([], {project: this.project});
-    this.listenTo(this.tasks, "sync", this.render)
+    this.listenTo(this.tasks, "sync", this.render);
   },
 
   events: {
     "click .editable": "editTask",
     "blur .edit-task": "saveTask",
     "keyup .edit-task": "maybeSaveTask",
-    // "click .task-completed": "completeTask"
+    // "click .task-check": "completeTask"
   },
 
   render: function () {
-    var task = this.tasks.getOrFetch(this.taskID)
+    var task = this.tasks.getOrFetch(this.taskID);
 
     var renderedContent = this.template({
       task: task,
       project: this.project
-    })
+    });
 
     this.$el.html(renderedContent);
     return this;
@@ -30,7 +30,7 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
   editTask: function(e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
-    var field = $target.data('field')
+    var field = $target.data('field');
     var $input = $("<input class=\"edit-task\">");
 
     $input.data('field', field);
@@ -58,9 +58,9 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
     }
   },
 
-  completeTask: function (e){
-    e.preventDefault();
-    //figure out checkboxes later
-  },
+  // completeTask: function (e){
+  //   e.preventDefault();
+  //   //figure out checkboxes later
+  // },
 
 });

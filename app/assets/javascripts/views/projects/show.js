@@ -9,10 +9,10 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     //this.model = project
     //this.collection = tasks
-    this.current_user_id = options.current_user_id
+    this.current_user_id = options.current_user_id;
     this.collection = this.model.tasks();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model, "sync", this.renderTaskMiniForm)
+    this.listenTo(this.model, "sync", this.renderTaskMiniForm);
     this.listenTo(this.collection, "add", this.addTaskLinkItem);
 
     this.collection.forEach(function(task) {
@@ -23,7 +23,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
 //passing in current user-id... maybe this whole page via user json... ??
 
   render: function () {
-    var renderedContent = this.template({project: this.model})
+    var renderedContent = this.template({project: this.model});
 
     this.$el.html(renderedContent);
     this.renderTaskMiniForm();
@@ -37,7 +37,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     //probably need to listen to sync and render in this view
 
-    this.addSubview("#tasks-list", subview)
+    this.addSubview("#tasks-list", subview);
   },
 
   renderTaskMiniForm: function (e) {
@@ -47,4 +47,4 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     this.addSubview("#task-form", subview);
   },
-})
+});

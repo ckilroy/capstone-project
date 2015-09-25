@@ -3,7 +3,7 @@ AsanaClone.Views.WorkspaceItem = Backbone.View.extend({
   tagName: "li",
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {
@@ -12,4 +12,4 @@ AsanaClone.Views.WorkspaceItem = Backbone.View.extend({
 
     return this;
   }
-})
+});

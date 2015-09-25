@@ -426,6 +426,53 @@ li:hover .header-dropdown{
 
 .tasks-list > li {
   border-bottom: 1px solid #7E6987;
+  /*added*/
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="checkbox"] {
+  display: block;
+  position: absolute;
+  left: -9000px;
+}
+
+label.tasks-check {
+  display: block;
+  cursor: pointer;
+  animation: undone .5s;
+  position: relative;
+}
+
+label.tasks-check::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  display: block;
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+  animation: done .5s;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background: black;
+}
+
+@keyframes done {
+  0% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes undone {
+  0% {
+    transform: translateY(-20px);
+  }
 }
 
 .task-form {
@@ -490,6 +537,7 @@ li:hover .header-dropdown{
 #task-changes {
   font-size: 10pt;
 }
+
 /*
 
 
