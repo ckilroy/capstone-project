@@ -33,7 +33,6 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p, input, button 
 }
 
 html {
-  height: 100%;
   background:
     	linear-gradient(
     		45deg,
@@ -113,7 +112,7 @@ body {
 
 .samestyle {
   width: 500px;
-  display: block;
+  height: 100%;
   margin: auto;
   margin-top: -70px;
   color: white;
@@ -161,7 +160,7 @@ body {
 
 .login-form {
   width: 80%;
-  margin: 15px auto;
+  margin: auto;
   float: center;
 }
 
@@ -289,7 +288,7 @@ body {
   float: right;
   padding: 20px;
   text-decoration: underline;
-  color: #b2b2b2;
+  color: #ab5fcc;
 }
 
 /*sigin end #############################*/
