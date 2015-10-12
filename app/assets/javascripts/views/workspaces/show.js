@@ -1,6 +1,8 @@
 //MyTasks will load on sign in, eventually
 AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
+  noBarTemplate: JST['workspaces/show_no_side'],
+  sidebar: true,
 
   initialize: function (options) {
     // TODO: refactor to just have current user object up her... will affect a few functions
@@ -21,12 +23,32 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   events: {
     "click .project-link": "renderProjectShow",
     "click .task-detail": "renderTaskDetail",
-    "click .my-tasks": "userTaskShow"
+    "click .my-tasks": "userTaskShow",
+    "click .close": "closeSidebar",
+    "click .open": "openSidebar"
+  },
+
+  closeSidebar: function() {
+    this.sidebar = false;
+    this.render();
+  },
+
+  openSidebar: function() {
+    this.sidebar = true;
+    this.render();
   },
 
   render: function () {
     //renders the basic page layout
-    var renderedContent = this.template();
+    var renderedContent
+
+    if (this.sidebar) {
+      renderedContent = this.template();
+    } else {
+      renderedContent = this.noBarTemplate();
+    }
+
+
     this.$el.html(renderedContent);
 
     this.attachSubviews();
