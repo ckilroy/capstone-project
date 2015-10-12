@@ -25,6 +25,7 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p, input, button 
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
+  display: inherit;
 
   box-sizing: inherit;
 
@@ -32,8 +33,7 @@ html, body, header, nav, h1, h2, h4, h5, a, ul, li, div, form, p, input, button 
 }
 
 html {
-  width: 100%;
-  /*height: 100%;*/
+  height: 100%;
   background:
     	linear-gradient(
     		45deg,
@@ -80,6 +80,7 @@ body {
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 400;
+  height: 100%;
 }
 
 /*signins##################################*/
@@ -364,25 +365,28 @@ li:hover .header-dropdown{
 /*header-end###########################*/
 
 .container {
-  position: relative;
-  background: #C0B1C7;
-  margin: 0 auto;
+  /*position: relative;*/
+  /*background: #C0B1C7;*/
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 /*sidebar##############################*/
 
 .sidebar {
-  background: #D3C7D6;
-  float: left;
-  width: 250px;
-  height: 1020px;
+  background: white;
   padding: 15px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
-  border-bottom: 1px solid #7E6987;
-  margin-top: -39px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  order: 1;
+  display: block;
+  width: 250px;
   /*height i want 100%*/
 }
 
@@ -438,19 +442,12 @@ li:hover .header-dropdown{
 
 
 /*sidebar-end#########################*/
-.main {
-  float: left;
-  padding: 10px 30px;
-}
-
 .project-show {
   background: #EDE9F2;
-  float: left;
-  min-width: 450px;
-  max-width: 950px;
-  height: 1000px;
   border-radius: 5px;
   border: 1px solid #7E6987;
+  order: 2;
+  display: block;
 }
 
 .project-show h1 {
@@ -575,23 +572,22 @@ input[type="checkbox"]:checked:hover + label::before {
 
 .task-detail-show {
   background: #EDE9F2;
-  float: right;
-  min-width: 400px;
-  max-width: 6300px;
-  height: 215px;
   border-radius: 5px;
   border: 1px solid #7E6987;
+  order: 3;
 }
 
 .task-detail-nav {
   position: relative;
   height: 40px;
   border-bottom: 1px solid #7E6987;
+  display: block;
 }
 
 .task-detail-links > li {
   float: left;
   position: relative;
+  display: block;
 }
 
 .task-detail-links a {
