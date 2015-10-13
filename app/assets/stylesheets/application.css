@@ -386,6 +386,13 @@ li:hover .header-dropdown{
   display: block;
   width: 250px;
   height: 100%;
+  margin-top: -40px;
+}
+
+.closed {
+  background: white;
+  height: 40px;
+  margin-top: -40px;
 }
 
 .sidebar {
@@ -403,6 +410,11 @@ li:hover .header-dropdown{
   font-weight: 700;
   font-size: 30px;
   border-bottom: 1px solid #7E6987;
+  display: inline;
+}
+
+.sidebar-logo > button {
+  float: right;
 }
 
 .sidebar-links {
@@ -460,6 +472,12 @@ li:hover .header-dropdown{
 .main {
   background: #EDE9F2;
   border-right: 1px solid #7E6987;
+}
+
+.main-closed {
+  background: #EDE9F2;
+  border-right: 1px solid #7E6987;
+  margin-left: -10px;
 }
 
 .project-show h1 {
