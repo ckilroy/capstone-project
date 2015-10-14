@@ -1,7 +1,12 @@
-<a href="<%="#/workspaces/" + workspace.id %>" class="project-link" data-id="<%= project.id %>">
-  <% if (project.escape('name') === "") { %>
-    <h5>No Project</h5>
-  <% } else { %>
-  <h5> <%= project.escape('name') %> </h5>
-  <% } %> 
-</a>
+<div class="project-click">
+  <a href="<%="#/workspaces/" + workspace.id %>" class="project-link" data-id="<%= project.id %>">
+    <h5> <%= project.escape('name') %> </h5>
+  </a>
+
+  <div class="group">
+    <ul>...<ul>
+    <ul class="project-dropdown group">
+      <li class="delete-project" data-id="<%= project.id %>">Delete Project</li>
+    </ul>
+  </div>
+</div>

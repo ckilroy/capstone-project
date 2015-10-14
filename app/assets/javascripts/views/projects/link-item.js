@@ -9,5 +9,5 @@ AsanaClone.Views.ProjectLinkItem = Backbone.CompositeView.extend({
 
     this.$el.html(renderContent);
     return this;
-  }
+  },
 });

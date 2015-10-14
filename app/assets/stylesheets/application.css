@@ -402,7 +402,8 @@ li:hover .header-dropdown{
 
 .sidebar li {
   display: block;
-  padding: 10px 0px;
+  padding: 5px 0px;
+  margin: 5px 0px;
 }
 
 .sidebar-logo {
@@ -802,4 +803,43 @@ input[type="checkbox"]:checked:hover + label::before {
   border: 3px solid #d89af4;
   padding: 12px;
   color: white;
+}
+
+.project-click a {
+  width: 100px;
+  float: left;
+}
+
+.project-click ul {
+  width: 20px;
+  float: right;
+}
+
+.project-click ul {
+  cursor: pointer;
+}
+
+.project-click li {
+  padding: 5px;
+  background: white;
+  border: 1px solid black;
+  width: 110px;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.project-click li:hover {
+  background: #c271e8;
+}
+
+.project-dropdown {
+  display: none;
+}
+
+.project-click ul:hover .project-dropdown {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
 }

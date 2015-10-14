@@ -4,6 +4,9 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   noBarTemplate: JST['workspaces/show_no_side'],
   sidebar: true,
 
+  // TODO: if panes of a project are open, they should not display if the project is deleted
+  //but panes stay should still display if a different project is deleted (renderoldpanes)
+
   initialize: function (options) {
     // TODO: refactor to just have current user object up her... will affect a few functions
     //collection:workspaces
@@ -25,7 +28,19 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     "click .task-detail": "renderTaskDetail",
     "click .my-tasks": "userTaskShow",
     "click .close": "closeSidebar",
-    "click .open": "openSidebar"
+    "click .open": "openSidebar",
+    "click .delete-project": "deleteProject"
+  },
+
+
+  deleteProject: function (e) {
+    e.preventDefault();
+    $target = $(e.currentTarget);
+
+    var project = this.projects.get($target.data('id'));
+    project.destroy();
+    debugger
+    this.render();
   },
 
   closeSidebar: function() {
