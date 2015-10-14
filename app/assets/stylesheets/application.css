@@ -434,12 +434,9 @@ li:hover .header-dropdown{
   font-size: 10pt;
 }
 
-.sidebar-title > h4 {
-
-}
-
-.sidebar-title > div {
-  width: 40px;
+.sidebar-title {
+  position: relative;
+  width: 190px;
 }
 
 .sidebar-title a:hover {
@@ -662,6 +659,24 @@ input[type="checkbox"]:checked:hover + label::before {
   height: 100%;
 }
 
+.add-project {
+  position: relative;
+}
+
+ .add-project > h4 {
+   float: left;
+ }
+
+ .add-project > div {
+   float: right;
+   text-align: center;
+   width: 17px;
+ }
+
+ .add-project a {
+   border: 1px solid black;
+   border-radius: 50%;
+ }
 
 /*
 
@@ -684,3 +699,33 @@ input[type="checkbox"]:checked:hover + label::before {
   float: left;
   border-left: 1px solid #7E6987;
 }*/
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  z-index: 9999;
+  opacity: 0.3;
+  /*-webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;*/
+  pointer-events: none;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-form {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: white;
+}
