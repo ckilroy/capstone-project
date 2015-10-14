@@ -701,31 +701,105 @@ input[type="checkbox"]:checked:hover + label::before {
 }*/
 
 
-.modal {
+.openModal {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background: black;
-  z-index: 9999;
-  opacity: 0.3;
-  /*-webkit-transition: opacity 400ms ease-in;
+  z-index: 1;
+  opacity: 0.5;
+  -webkit-transition: opacity 400ms ease-in;
   -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;*/
-  pointer-events: none;
+  transition: opacity 400ms ease-in;
 }
 
-.modal:target {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .project-form {
+  z-index: 1 !important;
+  pointer-events: auto;
   width: 400px;
-  position: relative;
-  margin: 10% auto;
+  height: 240px;
+  position: absolute;
+  margin: auto;
   padding: 5px 20px 13px 20px;
   border-radius: 10px;
   background: white;
+  opacity: 1 !important;
+  box-shadow: 0px 0px 10px 1px;
+}
+
+.project-form input {
+  width: 100%;
+  border-top: 1px solid #C0B1C7;
+  border: 1px solid #b2b2b2;
+  padding: 5px;
+  border-radius: 3px;
+  -webkit-transition: all 0.30s ease-in-out;
+  background: white;
+  color: #b2b2b2;
+  margin-bottom: 5px;
+}
+
+.project-form input:focus {
+  box-shadow: 0px 0px 3px 0px #BC94E0;
+  border: 1px solid #BC94E0;
+  color: black;
+}
+
+.project-form a {
+  float: right;
+  border: none;
+  font-size: 20px;
+}
+
+.project-form a:hover {
+  border: none;
+}
+
+.title {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.project-form h2 {
+  float: left;
+  border: none;
+  font-size: 24px;
+}
+
+.form-group {
+  padding: 25px;
+  margin-top: 10px;
+}
+
+.form-group > label{
+  font-variant: small-caps;
+  float: left;
+}
+
+.form-group > input {
+  width: 220px;
+  padding: 5px;
+  float: right;
+}
+
+.project-form button {
+  float: right;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 15px 0px;
+  background: #efeded;
+  border: 1px solid #b2b2b2;
+  color: #b2b2b2;
+  border-radius: 3px;
+}
+
+.project-form button:hover {
+  background: #c271e8;
+  border: 3px solid #d89af4;
+  padding: 12px;
+  color: white;
 }
