@@ -378,8 +378,9 @@ li:hover .header-dropdown{
 
 /*sidebar##############################*/
 
+
 .expanded {
-  background: white;
+  background: #6d4e7c;
   padding: 15px;
   border-left: 1px solid #7E6987;
   border-right: 1px solid #7E6987;
@@ -387,17 +388,18 @@ li:hover .header-dropdown{
   width: 250px;
   height: 100%;
   margin-top: -40px;
+  color: #b2b2b2;
 }
 
 .closed {
-  background: white;
+  background: #6d4e7c;
   height: 40px;
   margin-top: -40px;
 }
 
 .sidebar {
   order: 1;
-  /*height i want 100%*/
+  letter-spacing: .3px;
 }
 
 .sidebar li {
@@ -412,23 +414,32 @@ li:hover .header-dropdown{
   font-size: 30px;
   border-bottom: 1px solid #7E6987;
   display: inline;
+  color: white;
 }
 
 .sidebar-logo > button {
   float: right;
+  color: #b2b2b2;
+}
+
+.sidebar-logo > button:hover {
+  color: white;
 }
 
 .sidebar-links {
   font-size: 10pt;
 }
 
+/*here*/
 .sidebar-links > li:hover {
-  background: #C0B1C7;
+  background: #ab5fcc;
+  color: white;
   cursor: pointer;
 }
 
 #projects > li:hover {
-  background: #C0B1C7;
+  background: #ab5fcc;
+  color: white;
 }
 
 .sidebar-project-links {
@@ -438,10 +449,6 @@ li:hover .header-dropdown{
 .sidebar-title {
   position: relative;
   width: 190px;
-}
-
-.sidebar-title a:hover {
-  border: 1px solid #7E6987;
 }
 
 .sidebar-project-links > ul {
@@ -675,8 +682,14 @@ input[type="checkbox"]:checked:hover + label::before {
  }
 
  .add-project a {
-   border: 1px solid black;
+   border: 1px solid #b2b2b2;
    border-radius: 50%;
+ }
+
+ .add-project a:hover {
+   border: 1px solid white;
+   box-shadow: 0px 0px 0px 2px white;
+   color: white;
  }
 
 /*
@@ -806,7 +819,7 @@ input[type="checkbox"]:checked:hover + label::before {
 }
 
 .project-click a {
-  width: 100px;
+  width: 190px;
   float: left;
 }
 
@@ -815,14 +828,11 @@ input[type="checkbox"]:checked:hover + label::before {
   float: right;
 }
 
-.project-click ul {
-  cursor: pointer;
-}
-
 .project-click li {
   padding: 5px;
   background: white;
-  border: 1px solid black;
+  color: black;
+  border: 1px solid #b2b2b2;
   width: 110px;
   border-radius: 3px;
   text-align: center;
@@ -833,13 +843,31 @@ input[type="checkbox"]:checked:hover + label::before {
   background: #c271e8;
 }
 
+.project-click ul {
+  cursor: pointer;
+}
+
 .project-dropdown {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  display: block;
+  position: absolute;
 }
 
 .project-click ul:hover .project-dropdown {
   display: block;
+  visibility: visible;
+  opacity: 1;
   cursor: pointer;
   position: absolute;
   z-index: 1;
+}
+
+.more {
+  color: #b2b2b2;
+}
+
+.more:hover {
+  color: white;
 }
