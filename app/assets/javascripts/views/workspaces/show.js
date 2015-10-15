@@ -2,7 +2,6 @@
 AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
   template: JST['workspaces/show'],
   noBarTemplate: JST['workspaces/show_no_side'],
-  sidebar: true,
 
   // TODO: if panes of a project are open, they should not display if the project is deleted
   //but panes stay should still display if a different project is deleted (renderoldpanes)
@@ -18,9 +17,9 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.renderProjectForm);
     this.listenTo(this.projects, "add", this.displayProjectLink);
 
-    // this.projects.forEach(function(project) {
-    //   this.displayProjectLink(project);
-    // }.bind(this));
+    this.projects.forEach(function(project) {
+      this.displayProjectLink(project);
+    }.bind(this));
   },
 
   events: {
@@ -39,53 +38,42 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
 
     var project = this.projects.get($target.data('id'));
     project.destroy();
-    debugger
     this.render();
   },
 
-  closeSidebar: function() {
-    this.sidebar = false;
-    this.render();
+  closeSidebar: function(e) {
+    $target = $('#sidebar')
+    $target.addClass("closed").removeClass("expanded");
+    $target.find('ul').addClass("hide");
+    $target.find('section').removeClass("hide");
   },
 
-  openSidebar: function() {
-    this.sidebar = true;
-    this.render();
+  openSidebar: function(e) {
+    $target = $('#sidebar')
+    $target.addClass("expanded").removeClass("closed");
+    $target.find('section').addClass("hide");
+    $target.find('ul').removeClass("hide");
   },
 
   render: function () {
     //renders the basic page layout
-    var renderedContent
-
-    if (this.sidebar) {
-      renderedContent = this.template();
-    } else {
-      renderedContent = this.noBarTemplate();
-    }
+    renderedContent = this.template();
 
     this.$el.html(renderedContent);
 
-    this.projects.forEach(function(project) {
-      this.displayProjectLink(project);
-    }.bind(this));
-
-    this.renderProjectForm();
-
-    // this.attachSubviews();
+    this.attachSubviews();
 
     if (this._middlePane === undefined) {
       this.userTaskShow();
-    } else {
-      this.renderOldPanes();
     }
 
     return this;
   },
 
-  renderOldPanes: function() {
-    this.addSubview('#project-show', this._middlePane)
-    this.addSubview('#task-detail-show', this._rightPane);
-  },
+  // renderOldPanes: function() {
+  //   this.addSubview('#project-show', this._middlePane)
+  //   this.addSubview('#task-detail-show', this._rightPane);
+  // },
 
   displayProjectLink: function (project) {
     var subview = new AsanaClone.Views.ProjectLinkItem({

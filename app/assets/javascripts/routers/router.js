@@ -23,12 +23,6 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
 
     this.$navEl.find('#workspace-idx').html(indexView.render().$el);
   },
-  //   // QUESTION what if i WANT this to be a zombie? can i do that?
-  //   //right now i have this in a dropdown, so it is always on the page
-  //   //but i will eventually only have it show up on a click - maybe
-  //   //then i can close/remove view manually... i like the url change
-  //   //when you go to view a project and I don't feel like it makes
-  //   //sense to have this be a composite view...
 
 
   workShow: function (id) {
@@ -37,6 +31,7 @@ AsanaClone.Routers.Router = Backbone.Router.extend({
       this.workspaceID(this.workShow.bind(this, id))
       return;
     }
+
     if (this._userWorkspaces === undefined) {
       this.userWorkspaces(this.workShow.bind(this, id))
       return;

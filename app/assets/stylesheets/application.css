@@ -310,8 +310,6 @@ body {
   /*margin: auto;*/
   margin-left: 281px;
   width: 900px;
-  border-left: 1px solid #7E6987;
-  border-right: 1px solid #7E6987;
 }
 
 .header-links {
@@ -386,15 +384,31 @@ li:hover .header-dropdown{
   border-right: 1px solid #7E6987;
   display: block;
   width: 250px;
-  height: 100%;
+  height: calc(100% + 40px);
   margin-top: -40px;
   color: #b2b2b2;
 }
 
 .closed {
-  background: #6d4e7c;
+  /*background: #6d4e7c;*/
+  background: white;
+  border-bottom: 1px solid #7E6987;
+  border-right: 1px solid #7E6987;
   height: 40px;
+  width: 40px;
   margin-top: -40px;
+}
+
+.closed:hover {
+  background: #6d4e7c;
+  /*background: white;*/
+  height: 40px;
+  width: 40px;
+  margin-top: -40px;
+}
+
+.open {
+  margin-left: 10px;
 }
 
 .sidebar {
@@ -417,9 +431,11 @@ li:hover .header-dropdown{
   color: white;
 }
 
+
 .sidebar-logo > button {
   float: right;
   color: #b2b2b2;
+  width: 40px;
 }
 
 .sidebar-logo > button:hover {
@@ -476,13 +492,16 @@ li:hover .header-dropdown{
 
 .main {
   background: #EDE9F2;
-  border-right: 1px solid #7E6987;
+  border: 1px solid #7E6987;
+  margin: 10px 10px 0px 10px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .main-closed {
   background: #EDE9F2;
-  border-right: 1px solid #7E6987;
-  margin-left: -10px;
+  border: 1px solid #7E6987;
+  margin: 10px 10px 0px -30px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .project-show h1 {
@@ -608,7 +627,6 @@ input[type="checkbox"]:checked:hover + label::before {
 .task-detail-show {
   background: #EDE9F2;
   border-radius: 5px;
-  /*border: 1px solid #7E6987;*/
   order: 3;
   height: 100%;
 }
@@ -870,4 +888,13 @@ input[type="checkbox"]:checked:hover + label::before {
 
 .more:hover {
   color: white;
+}
+
+.hide {
+  display: none !important;
+}
+
+section button {
+  font-size: 24px;
+  margin-top: 5px;
 }
