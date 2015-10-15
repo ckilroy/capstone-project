@@ -1,3 +1,5 @@
+require 'active_support/core_ext'
+
 class Task < ActiveRecord::Base
   validates :name, :creator_id, presence: true
 
@@ -28,5 +30,8 @@ class Task < ActiveRecord::Base
     return true
   end
 
+  # def parse_date
+  #   self.due_date
+  # end
 
 end

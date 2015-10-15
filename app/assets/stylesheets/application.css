@@ -446,7 +446,7 @@ li:hover .header-dropdown{
   font-size: 10pt;
 }
 
-/*here*/
+
 .sidebar-links > li:hover {
   background: #ab5fcc;
   color: white;
@@ -478,19 +478,8 @@ li:hover .header-dropdown{
 
 
 /*sidebar-end#########################*/
-.project-show {
-  order: 2;
-  position: relative;
-  float: left;
-  display: block;
-}
 
-.main {
-  background: #EDE9F2;
-  border: 1px solid #7E6987;
-  margin: 10px 10px 0px 10px;
-  border-radius: 5px 5px 0px 0px;
-}
+
 
 .main-closed {
   background: #EDE9F2;
@@ -525,13 +514,13 @@ li:hover .header-dropdown{
   border-radius: 2px;
   top: 2px;
   left: 98%;
-  background: #C0B1C7;
-  background-image: linear-gradient(to bottom, #C0B1C7, #A28BAD);
+  border: 1px solid #b2b2b2;
+  color: #b2b2b2;
 }
 
 .project-show button:hover {
-  background: #D8C5E0;
-  background-image: linear-gradient(to bottom, #D8C5E0, #C0B1C7);
+  color: #c271e8;
+  border: 1px solid #c271e8;
 }
 
 .tasks-window li {
@@ -619,35 +608,17 @@ input[type="checkbox"]:checked:hover + label::before {
   font-size: 15px;
 }
 
-.task-detail-show {
-  background: #EDE9F2;
-  border-radius: 5px;
-  order: 3;
-  height: 100%;
-}
-
-.task-detail-nav {
-  position: relative;
-  height: 40px;
-  border-bottom: 1px solid #7E6987;
-  display: block;
-}
-
 .task-detail-links > li {
   float: left;
   position: relative;
   display: block;
+  width: 130px;
 }
 
 .task-detail-links a {
   display: block;
   padding: 10px 20px;
   font-size: 15px;
-}
-
-.task-show {
-  padding: 10px 30px;
-  border-bottom: 1px solid #7E6987;
 }
 
 .project-name {
@@ -892,4 +863,57 @@ input[type="checkbox"]:checked:hover + label::before {
 section button {
   font-size: 24px;
   margin-top: 5px;
+}
+
+
+
+.main {
+  /*background: #EDE9F2;
+  border: 1px solid #7E6987;
+  margin: 10px 10px 0px 10px;
+  border-radius: 5px 5px 0px 0px;*/
+}
+
+
+.project-show {
+  order: 2;
+  position: relative;
+  float: left;
+  display: block;
+}
+
+
+.project-show {
+  background: #EDE9F2;
+  border: 1px solid #7E6987;
+  margin: 10px 10px 0px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+
+.task-detail-show {
+  background: blue;
+  border-radius: 5px;
+  order: 3;
+  margin: 10px;
+  display: block;
+  /*height: 100%;*/
+}
+
+.task-detail-nav {
+  position: relative;
+  height: 40px;
+  width: 300px;
+  display: block;
+  float: left;
+}
+
+.task-show {
+  padding: 10px 30px;
+  border-bottom: 1px solid #7E6987;
+  float: left;
+}
+
+.task-due-date {
+  width: 100px;
 }

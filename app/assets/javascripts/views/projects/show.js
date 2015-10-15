@@ -52,6 +52,7 @@ AsanaClone.Views.ProjectShow = Backbone.CompositeView.extend({
   renderTaskMiniForm: function (e) {
     var subview = new AsanaClone.Views.TaskMiniForm({
       collection: this.collection,
+      project: this.model,
       current_user_id: this.current_user_id
     });
     this.addSubview("#task-form", subview);

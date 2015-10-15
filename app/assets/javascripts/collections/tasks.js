@@ -2,9 +2,11 @@ AsanaClone.Collections.Tasks = Backbone.Collection.extend({
   model: AsanaClone.Models.Task,
   url: "/api/tasks",
 
-  initialize: function (model, options) {
-    this.project = options.project;
-  },
+  // initialize: function (model, options) {
+  //   if (options.project) {
+  //     this.project = options.project;
+  //   }
+  // },
 
   getOrFetch: function(id) {
     var collection = this;
