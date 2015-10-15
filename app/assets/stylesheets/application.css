@@ -313,7 +313,7 @@ body {
 }
 
 .header-links {
-  float: left;
+  float: right;
 }
 
 .header-links > li {
@@ -353,6 +353,11 @@ li:hover .header-dropdown{
 
 .header-workspaces {
   background: #E1D9E4;
+}
+
+.header-dropdown button {
+  margin-left: 20px;
+  padding: 5px;
 }
 
 .header-workspaces > li:hover {
@@ -725,7 +730,7 @@ input[type="checkbox"]:checked:hover + label::before {
   border-radius: 10px;
   background: white;
   opacity: 1 !important;
-  box-shadow: 0px 0px 10px 1px;
+  box-shadow: 0px 0px 10px 1px black;
 }
 
 .project-form input {
@@ -803,7 +808,7 @@ input[type="checkbox"]:checked:hover + label::before {
 }
 
 .project-click a {
-  width: 190px;
+  width: 170px;
   float: left;
 }
 

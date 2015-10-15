@@ -3,6 +3,12 @@
 
     <li class="task-assignee">
       <a href="#">
+        <% if (task.escape('assignee_id')) {%>
+          <% debugger %>
+        <% users.getOrFetch(task.escape('assignee_id')).escape('email') %>
+        <% } else { %>
+          <%= "Unassigned" %>
+          <% } %>
       </a>
     </li>
 
