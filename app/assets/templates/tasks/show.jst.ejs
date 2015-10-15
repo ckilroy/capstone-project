@@ -28,7 +28,7 @@
 </nav>
 
 <div class="task-show group">
-  <h4 class="project-name">  </h4>
+  <h4 class="project-name"></h4>
 
 
   <input type="checkbox" name="task-check" data-task-id="<%= task.id %>"
@@ -40,18 +40,23 @@
     <%= task.escape('name') %>
   </div>
 
+
+  <% if (task.escape('description')) { %>
+  <%= "Description:" %>
+  <% } %>
+
   <div id="task-description" class="editable" data-field="description">
     <% if (task.escape('description')) { %>
       <%= task.escape('description') %>
     <% } else { %>
       <div class="no-val">
-        Description
+        Add Description
       </div>
     <% } %>
   </div>
 
   <div id="task-changes">
-  *changes<!-- create, assigned, updated -->
+  <!-- *changes<! create, assigned, updated -->
   </div>
 
 </div>

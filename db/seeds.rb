@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([{email: "ckilroy", password: "password"}, {email: "not-me", password: "password"}])
+users = User.create([{email: "Caitlin", password: "password"}, {email: "Team Member", password: "password"}])
 workspaces = Workspace.create([{name: "Personal Workspace"}, {name: "Team Workspace"}])
 
 #ckilroy is associated with both
@@ -22,31 +22,31 @@ shared_projects =  Project.create([{name: "Team Project One", workspace_id: work
 Project.create({name: "Personal Project", workspace_id: workspaces[0].id})
 
 #1
-Task.create({name: "Assigned To CKilroy 1 - today", priority: 1, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Refactor code", priority: 1, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #2
-Task.create({name: "Assigned To CKilroy 1 - upcoming", priority: 2, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+# Task.create({name: "Assigned To CKilroy 1 - upcoming", priority: 2, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #3
-Task.create({name: "Assigned To CKilroy 1 - later", priority: 3, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+# Task.create({name: "Assigned To CKilroy 1 - later", priority: 3, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #4
-Task.create({name: "Assigned To CKilroy 1 - no priority", creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Call client", creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #5
-Task.create({name: "CKilroy 1 created - assigned to NOT-ME", creator_id: users[0].id, assignee_id: users[1].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Write report", creator_id: users[0].id, assignee_id: users[1].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #6
-Task.create({name: "CKilroy 1 created - unassigned", creator_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Reorganize file cabinet", creator_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 #7
-Task.create({name: "Assigned To CKilroy 1 - completed", completed: true, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Add CSS styling", completed: true, creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[0].id, workspace_id: workspaces[1].id})
 
 #8
-Task.create({name: "Assigned To CKilroy 2", creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[1].id, workspace_id: workspaces[1].id})
+Task.create({name: "Prepare meeting notes", creator_id: users[0].id, assignee_id: users[0].id, project_id: shared_projects[1].id, workspace_id: workspaces[1].id})
 #9
-Task.create({name: "CKilroy 2 created - assigned to NOT ME", creator_id: users[0].id, assignee_id: users[1].id, project_id: shared_projects[1].id, workspace_id: workspaces[1].id})
+Task.create({name: "Attend conference", creator_id: users[0].id, assignee_id: users[1].id, project_id: shared_projects[1].id, workspace_id: workspaces[1].id})
 
 #10
-Task.create({name: "CKilroy assigned - no project", creator_id: users[0].id, assignee_id: users[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Pick up groceries", creator_id: users[0].id, assignee_id: users[0].id, workspace_id: workspaces[1].id})
 #11
-Task.create({name: "NOT-ME assigned - no project", creator_id: users[0].id, assignee_id: users[1].id, workspace_id: workspaces[1].id})
+# Task.create({name: "NOT-ME assigned - no project", creator_id: users[0].id, assignee_id: users[1].id, workspace_id: workspaces[1].id})
 #12
-Task.create({name: "Unassigned - no project", creator_id: users[0].id, workspace_id: workspaces[1].id})
+Task.create({name: "Gather analytics data", creator_id: users[0].id, workspace_id: workspaces[1].id})
 
 
 #Project One
