@@ -20,6 +20,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     this.projects.forEach(function(project) {
       this.displayProjectLink(project);
     }.bind(this));
+
   },
 
   events: {
@@ -31,6 +32,13 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     "click .delete-project": "deleteProject"
   },
 
+  getUsers: function () {
+    this.collection.forEach(function (workspace) {
+      workspace.users().forEach(function (user) {
+        this.users.add(user);
+      }.bind(this))
+    }.bind(this))
+  },
 
   deleteProject: function (e) {
     e.preventDefault();
@@ -125,6 +133,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     var $target = $(e.currentTarget);
     var projectID = $target.data('project-id');
     var taskID = $target.data('task-id');
+    this.getUsers();
 
     var subview = new AsanaClone.Views.TaskShow({
        taskID: taskID,

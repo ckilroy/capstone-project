@@ -25,5 +25,6 @@ AsanaClone.Collections.Tasks = Backbone.Collection.extend({
     }
 
     return task;
-  }
+  },
+
 });

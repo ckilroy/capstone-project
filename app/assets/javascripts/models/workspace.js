@@ -6,6 +6,10 @@ AsanaClone.Models.Workspace = Backbone.Model.extend({
       this.projects().set(response.projects, {parse: true});
       delete response.projects;
     }
+    if (response.users) {
+      this.users().set(response.users, {parse: true});
+      delete response.users;
+    }
 
     return response;
   },
@@ -16,5 +20,14 @@ AsanaClone.Models.Workspace = Backbone.Model.extend({
     }
 
     return this._projects;
+  },
+
+
+  users: function () {
+    if (!this._users) {
+      this._users = new AsanaClone.Collections.Users([], {workspace: this})
+    }
+
+    return this._users;
   }
 })

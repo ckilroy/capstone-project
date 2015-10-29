@@ -16,8 +16,9 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
     // "click .task-check": "completeTask"
   },
 
-  render: function (assignee) {
-    var task = this.tasks.getOrFetch(this.taskID);
+  render: function () {
+    var task = this.tasks.getOrFetch(this.taskID)
+
     var renderedContent = this.template({
       task: task,
       projects: this.projects,
