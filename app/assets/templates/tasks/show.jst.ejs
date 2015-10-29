@@ -4,6 +4,7 @@
     <li class="task-assignee">
       <a href="#">
         <% if (task.escape('assignee_id')) {%>
+        <%= "Assigned To:"  %>
         <%= users.get(task.escape('assignee_id')).escape('email') %>
         <% } else { %>
           <%= "Unassigned" %>
@@ -11,7 +12,7 @@
       </a>
     </li>
 
-    <li class="task due date">
+    <!-- <li class="task due date">
       <a href="#">
         <% if (task.escape('due_date')) { %>
           <%= task.escape('due_date') %>
@@ -21,7 +22,9 @@
           </div>
         <% } %>
       </a>
-    </li>
+    </li> -->
+
+    <button class="close-task">&times;</button>
 
   </ul>
 </nav>

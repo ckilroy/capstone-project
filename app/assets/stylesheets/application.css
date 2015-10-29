@@ -913,29 +913,34 @@ section button {
   order: 3;
   margin: 10px;
   display: block;
+  position: relative;
+  min-width: 370px;
   /*height: 100%;*/
 }
 
 .task-detail-nav {
   position: relative;
-  height: 40px;
+  height: 60px;
   width: 100%;
   display: block;
   float: left;
   border-bottom: 1px solid #7E6987;
 }
 
+.task-detail-nav button {
+  padding: 12px;
+  float: right;
+}
+
 .task-show {
   padding: 10px 30px;
-  border-bottom: 1px solid #7E6987;
+  /*border-bottom: 1px solid #7E6987;*/
   float: left;
 }
 
 .task-due-date {
   width: 100px;
 }
-
-
 
 .workspace-new {
   display: block;
@@ -998,4 +1003,8 @@ section button {
   border: 3px solid #d89af4;
   padding: 8px;
   color: white;
+}
+
+.hidden {
+  display: none;
 }

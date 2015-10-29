@@ -13,7 +13,13 @@ AsanaClone.Views.TaskShow = Backbone.View.extend({
     "click .editable": "editTask",
     "blur .edit-task": "saveTask",
     "keyup .edit-task": "maybeSaveTask",
+    "click .close-task": "closeTask",
     // "click .task-check": "completeTask"
+  },
+
+  closeTask: function (e) {
+    e.preventDefault();
+    $(".task-detail-show").addClass("hidden");
   },
 
   render: function () {

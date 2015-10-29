@@ -134,6 +134,7 @@ AsanaClone.Views.WorkspaceShow = Backbone.CompositeView.extend({
     var projectID = $target.data('project-id');
     var taskID = $target.data('task-id');
     this.getUsers();
+    $(".task-detail-show").removeClass("hidden");
 
     var subview = new AsanaClone.Views.TaskShow({
        taskID: taskID,
