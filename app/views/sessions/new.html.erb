@@ -11,6 +11,15 @@
       <a class="fb-create-button" href="/auth/facebook"> Use Facebook Account</a>
     </div>
 
+    <div class="access group">
+      <form class="" action="/session" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+        <input class="hidden" name="user[email]" value="Caitlin">
+        <input class="hidden" name="user[password]" value="password">
+        <button class="fb-create-button"> Guest Log In</button>
+      </form>
+    </div>
+
     <div class="or"> <hr width="45%">or<hr width="45%"> </div>
 
 
